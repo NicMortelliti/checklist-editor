@@ -1,7 +1,7 @@
 import { Button } from 'antd';
 
 const ImportBtn = () => {
-  return <Button>Import Checklist</Button>;
+  return <Button disabled>Import Checklist</Button>;
 };
 
 export default ImportBtn;
