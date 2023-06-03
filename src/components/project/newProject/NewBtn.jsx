@@ -1,12 +1,13 @@
+import { Button } from 'antd';
 import { setOnBoarding } from '../../../redux/uiSlice';
 import { useDispatch } from 'react-redux';
 
 const NewBtn = () => {
   const dispatch = useDispatch();
   return (
-    <button onClick={() => dispatch(setOnBoarding(false))}>
+    <Button onClick={() => dispatch(setOnBoarding(false))}>
       New Checklist
-    </button>
+    </Button>
   );
 };
 
