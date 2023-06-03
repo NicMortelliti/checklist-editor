@@ -1,6 +1,6 @@
 import '../style/App.css';
-import ImportComp from './importProject/ImportComp';
-import NewComp from './newProject/NewComp';
+import ImportComp from './project/importProject/ImportComp';
+import NewComp from './project/newProject/NewComp';
 import { useSelector } from 'react-redux';
 
 function App() {

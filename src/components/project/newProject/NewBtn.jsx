@@ -1,4 +1,4 @@
-import { setOnBoarding } from '../../redux/uiSlice';
+import { setOnBoarding } from '../../../redux/uiSlice';
 import { useDispatch } from 'react-redux';
 
 const NewBtn = () => {
