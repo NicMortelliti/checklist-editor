@@ -8,7 +8,7 @@ const initialState = {
 export const dataSlice = createSlice({
   name: 'data',
   initialState,
-  reducer: {
+  reducers: {
     importFromJson: (state, action) => ({
       ...state,
       data: action.payload,

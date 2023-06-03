@@ -1,13 +1,26 @@
 import '../style/App.css';
 import ImportComp from './importProject/ImportComp';
 import NewComp from './newProject/NewComp';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const { onBoarding } = useSelector((state) => state.ui);
+
+  const RenderOnboarding = () => {
+    if (onBoarding) {
+      return (
+        <>
+          <ImportComp />
+          <p>OR</p>
+          <NewComp />
+        </>
+      );
+    }
+  };
+
   return (
     <>
-      <ImportComp />
-      <p>OR</p>
-      <NewComp />
+      <RenderOnboarding />
     </>
   );
 }
