@@ -1,28 +1,17 @@
 import '../style/App.css';
-import ImportComp from './projectSelect/importProject/ImportComp';
-import NewComp from './projectSelect/newProject/NewComp';
+import ProjectSelect from './projectSelect/ProjectSelect';
+import EditingInterface from './edit/EditingInterface';
 import { useSelector } from 'react-redux';
 
 function App() {
   const { onBoarding } = useSelector((state) => state.ui);
 
-  const RenderOnboarding = () => {
-    if (onBoarding) {
-      return (
-        <>
-          <ImportComp />
-          <p>OR</p>
-          <NewComp />
-        </>
-      );
-    }
+  const RenderInterface = () => {
+    if (onBoarding) return <ProjectSelect />;
+    return <EditingInterface />;
   };
 
-  return (
-    <>
-      <RenderOnboarding />
-    </>
-  );
+  return <RenderInterface />;
 }
 
 export default App;
