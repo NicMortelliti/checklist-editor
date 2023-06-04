@@ -7,6 +7,28 @@ const initialState = {
       id: uuid(),
       text: 'Normal',
     },
+    {
+      id: uuid(),
+      text: 'Non-Normal',
+    },
+    {
+      id: uuid(),
+      text: 'Procedure',
+    },
+  ],
+  subIndexes: [
+    {
+      id: uuid(),
+      text: "Preflight"
+    },
+    {
+      id: uuid(),
+      text: "Taxi"
+    },
+    {
+      id: uuid(),
+      text: "Takeoff"
+    }
   ],
   data: [],
   selectedIndexId: 2,
