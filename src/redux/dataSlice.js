@@ -33,22 +33,7 @@ const initialState = {
       text: 'Takeoff',
     },
   ],
-  data: [
-    {
-      key: uuid(),
-      children_ids: [17, 2, 19],
-      text: 'Normal',
-      type: 'index',
-      cas_message: '',
-      latchable: '',
-      auto_sensed_bool: '',
-      invert_sensed_bool: '',
-      auto_reset_bool: '',
-      timer_sec: '',
-      sensed_timer_bool: '',
-      synoptic_link: '',
-    },
-  ],
+  data: [],
 };
 
 export const dataSlice = createSlice({
