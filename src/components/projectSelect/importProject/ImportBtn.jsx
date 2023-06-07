@@ -1,26 +1,39 @@
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Upload, message } from 'antd';
+import { useDispatch } from 'react-redux';
+import {
+  importFromJsonStart,
+  importFromJsonSuccess,
+  importFromJsonFailure,
+} from '../../../redux/dataSlice';
 
 const ImportBtn = () => {
-  const props = {
-    name: 'file',
-    beforeUpload: (file) => {
-      const isJSON = file.type === 'application/json';
-      if (!isJSON) {
-        message.error(`${file.name} is not a json file`);
+  const dispatch = useDispatch();
+
+  const handleFileUpload = (file) => {
+    dispatch(importFromJsonStart());
+
+    // Read the JSON file
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const jsonData = JSON.parse(e.target.result);
+        dispatch(importFromJsonSuccess(jsonData));
+        message.success('JSON file uploaded successfully!');
+      } catch (error) {
+        dispatch(importFromJsonFailure(error.message));
+        message.error('Error parsing JSON file.');
       }
-      return isJSON || Upload.LIST_IGNORE;
-    },
-    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-    headers: {
-      authorization: 'authorization-text',
-    },
+    };
+
+    reader.readAsText(file);
   };
 
-  console.log(props.file);
-
   return (
-    <Upload {...props} maxCount={1} accept='.json'>
+    <Upload
+      accept='.json'
+      beforeUpload={handleFileUpload}
+      showUploadList={false}>
       <Button icon={<UploadOutlined />}>Import Checklist (JSON)</Button>
     </Upload>
   );

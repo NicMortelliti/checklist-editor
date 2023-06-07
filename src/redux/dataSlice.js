@@ -2,6 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuid } from 'uuid';
 
 const initialState = {
+  loading: false,
+  error: null,
+  selectedIndexId: 2,
   indexes: [
     {
       key: uuid(),
@@ -46,19 +49,30 @@ const initialState = {
       synoptic_link: '',
     },
   ],
-  selectedIndexId: 2,
 };
 
 export const dataSlice = createSlice({
   name: 'data',
   initialState,
   reducers: {
-    importFromJson: (state, action) => ({
-      ...state,
-      data: action.payload,
-    }),
+    importFromJsonStart(state) {
+      state.loading = true;
+      state.error = null;
+    },
+    importFromJsonSuccess(state, action) {
+      state.data = action.payload;
+      state.loading = false;
+    },
+    importFromJsonFailure(state, action) {
+      state.error = action.payload;
+      state.loading = false;
+    },
   },
 });
 
-export const { importFromJson } = dataSlice.actions;
+export const {
+  importFromJsonStart,
+  importFromJsonSuccess,
+  importFromJsonFailure,
+} = dataSlice.actions;
 export default dataSlice.reducer;
