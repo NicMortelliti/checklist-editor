@@ -4,33 +4,48 @@ import { v4 as uuid } from 'uuid';
 const initialState = {
   indexes: [
     {
-      id: uuid(),
+      key: uuid(),
       text: 'Normal',
     },
     {
-      id: uuid(),
+      key: uuid(),
       text: 'Non-Normal',
     },
     {
-      id: uuid(),
+      key: uuid(),
       text: 'Procedure',
     },
   ],
   subIndexes: [
     {
-      id: uuid(),
-      text: "Preflight"
+      key: uuid(),
+      text: 'Preflight',
     },
     {
-      id: uuid(),
-      text: "Taxi"
+      key: uuid(),
+      text: 'Taxi',
     },
     {
-      id: uuid(),
-      text: "Takeoff"
-    }
+      key: uuid(),
+      text: 'Takeoff',
+    },
   ],
-  data: [],
+  data: [
+    {
+      key: uuid(),
+      children_ids: [17, 2, 19],
+      text: 'Normal',
+      type: 'index',
+      cas_message: '',
+      latchable: '',
+      auto_sensed_bool: '',
+      invert_sensed_bool: '',
+      auto_reset_bool: '',
+      timer_sec: '',
+      sensed_timer_bool: '',
+      synoptic_link: '',
+    },
+  ],
   selectedIndexId: 2,
 };
 

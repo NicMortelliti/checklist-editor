@@ -1,16 +1,18 @@
-import IndexComp from './IndexSelection/IndexComp';
-import SubIndexComp from './SubIndexSelection/SubIndexComp';
-import { List } from 'antd';
+import { Button, Form, Input, Popconfirm, Table } from 'antd';
+import { useSelector } from 'react-redux';
 
 const EditingInterface = () => {
-  const listArray = [<IndexComp />, <SubIndexComp />];
+  const { columns } = useSelector((state) => state.ui);
+  const { data } = useSelector((state) => state.data);
 
   return (
-    <List
-      grid={{ gutter: 16, column: 2 }}
+    <Table
+      // components={}
+      rowClassName={() => 'editable-row'}
       bordered
-      dataSource={listArray}
-      renderItem={(item) => <List.Item>{item}</List.Item>}></List>
+      dataSource={data}
+      columns={columns}
+    />
   );
 };
 
