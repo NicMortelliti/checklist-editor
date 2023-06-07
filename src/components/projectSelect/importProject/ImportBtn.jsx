@@ -1,6 +1,7 @@
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Upload, message } from 'antd';
 import { useDispatch } from 'react-redux';
+import { setOnBoarding } from '../../../redux/uiSlice';
 import {
   importFromJsonStart,
   importFromJsonSuccess,
@@ -19,6 +20,7 @@ const ImportBtn = () => {
       try {
         const jsonData = JSON.parse(e.target.result);
         dispatch(importFromJsonSuccess(jsonData));
+        dispatch(setOnBoarding(false));
         message.success('JSON file uploaded successfully!');
       } catch (error) {
         dispatch(importFromJsonFailure(error.message));
