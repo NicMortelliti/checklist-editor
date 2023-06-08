@@ -52,6 +52,10 @@ export const dataSlice = createSlice({
       state.error = action.payload;
       state.loading = false;
     },
+    updateData: (state, action) => ({
+      ...state,
+      data: action.payload,
+    }),
   },
 });
 
@@ -59,5 +63,6 @@ export const {
   importFromJsonStart,
   importFromJsonSuccess,
   importFromJsonFailure,
+  updateData,
 } = dataSlice.actions;
 export default dataSlice.reducer;
