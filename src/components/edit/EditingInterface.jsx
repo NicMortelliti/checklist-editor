@@ -7,7 +7,15 @@ const EditingInterface = () => {
 
   console.log(data);
 
-  return <Table rowKey='id' bordered dataSource={data} columns={columns} />;
+  return (
+    <Table
+      rowKey='id'
+      bordered
+      dataSource={data}
+      columns={columns}
+      pagination={false}
+    />
+  );
 };
 
 export default EditingInterface;
