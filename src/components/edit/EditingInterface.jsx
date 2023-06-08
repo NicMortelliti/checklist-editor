@@ -5,8 +5,6 @@ const EditingInterface = () => {
   const { columns } = useSelector((state) => state.ui);
   const { data } = useSelector((state) => state.data);
 
-  console.log(data);
-
   return (
     <Table
       rowKey='id'
@@ -14,6 +12,7 @@ const EditingInterface = () => {
       dataSource={data}
       columns={columns}
       pagination={false}
+      rowClassName={() => 'editable-row'}
     />
   );
 };
