@@ -5,15 +5,9 @@ const EditingInterface = () => {
   const { columns } = useSelector((state) => state.ui);
   const { data } = useSelector((state) => state.data);
 
-  return (
-    <Table
-      // components={}
-      rowClassName={() => 'editable-row'}
-      bordered
-      dataSource={data}
-      columns={columns}
-    />
-  );
+  console.log(data);
+
+  return <Table rowKey='id' bordered dataSource={data} columns={columns} />;
 };
 
 export default EditingInterface;
