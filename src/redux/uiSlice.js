@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   onBoarding: true,
-  openedModalName: '',
+  selectedIndex: {},
+  selectedSubIndex: {},
   columns: [
     { title: 'Tree', dataIndex: 'text', key: 'text' },
     { title: 'Type', dataIndex: 'type', key: 'type' },
@@ -41,12 +42,17 @@ export const uiSlice = createSlice({
       ...state,
       onBoarding: action.payload,
     }),
-    setOpenedModal: (state, action) => ({
+    setSelectedIndex: (state, action) => ({
       ...state,
-      openedModalName: action.payload,
+      selectedIndex: action.payload,
+    }),
+    setSelectedSubIndex: (state, action) => ({
+      ...state,
+      selectedSubIndex: action.payload,
     }),
   },
 });
 
-export const { setOnBoarding, setOpenedModal } = uiSlice.actions;
+export const { setOnBoarding, setSelectedIndex, setSelectedSubIndex } =
+  uiSlice.actions;
 export default uiSlice.reducer;

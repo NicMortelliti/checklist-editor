@@ -1,8 +1,6 @@
-import '../style/App.css';
 import ProjectSelect from './projectSelect/ProjectSelect';
 import EditingInterface from './edit/EditingInterface';
 import { useSelector } from 'react-redux';
-import ModalDirector from './modals/ModalCont';
 
 function App() {
   const { onBoarding } = useSelector((state) => state.ui);
@@ -12,12 +10,7 @@ function App() {
     return <EditingInterface />;
   };
 
-  return (
-    <>
-      <RenderInterface />
-      <ModalDirector />
-    </>
-  );
+  return <RenderInterface />;
 }
 
 export default App;

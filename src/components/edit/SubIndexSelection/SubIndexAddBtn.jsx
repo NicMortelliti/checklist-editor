@@ -1,18 +1,5 @@
-import { Button } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
-import { useDispatch } from 'react-redux';
-import { setOpenedModal } from '../../../redux/uiSlice';
-
 const SubIndexAddBtn = () => {
-  const dispatch = useDispatch();
-  return (
-    <Button
-      icon={<PlusOutlined />}
-      type='primary'
-      onClick={() => dispatch(setOpenedModal('indexModalAdd'))}>
-      Sub-Index
-    </Button>
-  );
+  return <button onClick={() => console.log('New SubIndex')}>Sub-Index</button>;
 };
 
 export default SubIndexAddBtn;

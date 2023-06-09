@@ -1,20 +1,20 @@
-import { Table } from 'antd';
 import { useSelector } from 'react-redux';
+import IndexComp from './IndexSelection/IndexComp';
+import SubIndexComp from './SubIndexSelection/SubIndexComp';
 
 const EditingInterface = () => {
-  const { columns } = useSelector((state) => state.ui);
-  const { data } = useSelector((state) => state.data);
+  const { selectedIndex } = useSelector((state) => state.ui);
 
-  return (
-    <Table
-      rowKey='id'
-      bordered
-      dataSource={data}
-      columns={columns}
-      pagination={false}
-      rowClassName={() => 'editable-row'}
-    />
-  );
+  const RenderPage = () => {
+    switch (true) {
+      case selectedIndex:
+        return <SubIndexComp />;
+      default:
+        return <IndexComp />;
+    }
+  };
+
+  return <RenderPage />;
 };
 
 export default EditingInterface;

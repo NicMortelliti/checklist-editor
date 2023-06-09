@@ -1,16 +1,14 @@
-import { List } from 'antd';
 import { useSelector } from 'react-redux';
 
 const SubIndexSelection = () => {
   const { subIndexes } = useSelector((state) => state.data);
-  return (
-    <List
-      header={<>Sub-Indexes</>}
-      bordered
-      dataSource={subIndexes}
-      renderItem={(item) => <List.Item>{item.text}</List.Item>}
-    />
-  );
+  const RenderSubIndexes = () => {
+    subIndexes.map((eachSubIndex) => {
+      <button>{eachSubIndex.text}</button>;
+    });
+  };
+
+  return <RenderSubIndexes />;
 };
 
 export default SubIndexSelection;
