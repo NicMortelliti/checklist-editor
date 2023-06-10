@@ -3,10 +3,11 @@ import IndexAddBtn from './IndexAddBtn';
 
 const IndexComp = () => {
   return (
-    <ul>
+    <>
+      <h2>Indexes</h2>
       <IndexSelection />
       <IndexAddBtn />
-    </ul>
+    </>
   );
 };
 

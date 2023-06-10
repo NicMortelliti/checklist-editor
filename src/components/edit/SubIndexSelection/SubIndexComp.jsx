@@ -3,10 +3,11 @@ import SubIndexAddBtn from './SubIndexAddBtn';
 
 const SubIndexComp = () => {
   return (
-    <List.Item>
+    <>
+      <h2>SubIndex</h2>
       <SubIndexSelection />
       <SubIndexAddBtn />
-    </List.Item>
+    </>
   );
 };
 

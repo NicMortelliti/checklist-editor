@@ -3,14 +3,13 @@ import IndexComp from './IndexSelection/IndexComp';
 import SubIndexComp from './SubIndexSelection/SubIndexComp';
 
 const EditingInterface = () => {
-  const { selectedIndex } = useSelector((state) => state.ui);
+  const { selectedIndex } = useSelector((state) => state.data);
 
   const RenderPage = () => {
-    switch (true) {
-      case selectedIndex:
-        return <SubIndexComp />;
-      default:
-        return <IndexComp />;
+    if (selectedIndex) {
+      return <SubIndexComp />;
+    } else {
+      return <IndexComp />;
     }
   };
 

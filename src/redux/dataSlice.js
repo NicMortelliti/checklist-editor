@@ -4,7 +4,8 @@ import { v4 as uuid } from 'uuid';
 const initialState = {
   loading: false,
   error: null,
-  selectedIndexId: 2,
+  selectedIndex: '',
+  selectedSubIndex: '',
   indexes: [
     {
       key: uuid(),
@@ -52,6 +53,14 @@ export const dataSlice = createSlice({
       state.error = action.payload;
       state.loading = false;
     },
+    setSelectedIndex: (state, action) => ({
+      ...state,
+      selectedIndex: action.payload,
+    }),
+    setSelectedSubIndex: (state, action) => ({
+      ...state,
+      selectedSubIndex: action.payload,
+    }),
   },
 });
 
@@ -59,5 +68,7 @@ export const {
   importFromJsonStart,
   importFromJsonSuccess,
   importFromJsonFailure,
+  setSelectedIndex,
+  setSelectedSubIndex,
 } = dataSlice.actions;
 export default dataSlice.reducer;

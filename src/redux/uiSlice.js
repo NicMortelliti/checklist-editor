@@ -2,8 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   onBoarding: true,
-  selectedIndex: {},
-  selectedSubIndex: {},
   columns: [
     { title: 'Tree', dataIndex: 'text', key: 'text' },
     { title: 'Type', dataIndex: 'type', key: 'type' },
@@ -42,17 +40,8 @@ export const uiSlice = createSlice({
       ...state,
       onBoarding: action.payload,
     }),
-    setSelectedIndex: (state, action) => ({
-      ...state,
-      selectedIndex: action.payload,
-    }),
-    setSelectedSubIndex: (state, action) => ({
-      ...state,
-      selectedSubIndex: action.payload,
-    }),
   },
 });
 
-export const { setOnBoarding, setSelectedIndex, setSelectedSubIndex } =
-  uiSlice.actions;
+export const { setOnBoarding } = uiSlice.actions;
 export default uiSlice.reducer;
