@@ -5,3 +5,10 @@ export const useGetIndexes = () => {
   const result = data.filter((eachItem) => eachItem.type === 'index');
   return result;
 };
+
+export const useGetSubIndexes = (parentIndex) => {
+  const result = parentIndex.children.filter(
+    (eachItem) => eachItem.type === 'sub-index'
+  );
+  return result;
+};

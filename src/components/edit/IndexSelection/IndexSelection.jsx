@@ -1,23 +1,17 @@
 import { useDispatch } from 'react-redux';
 import { setSelectedIndex } from '../../../redux/dataSlice';
-import { useGetIndexes } from '../../hooks/getItemsByType';
+import { useGetIndexes } from '../../hooks/getItems';
 
 const IndexSelection = () => {
   const dispatch = useDispatch();
+  const indexes = useGetIndexes();
 
-  const RenderIndexes = () => {
-    const indexes = useGetIndexes();
-
-    return indexes.map((index) => {
-      return (
-        <button
-          key={index.key}
-          onClick={() => dispatch(setSelectedIndex(index))}>
-          {index.text}
-        </button>
-      );
-    });
-  };
+  const RenderIndexes = () =>
+    indexes.map((index) => (
+      <button key={index.id} onClick={() => dispatch(setSelectedIndex(index))}>
+        {index.text}
+      </button>
+    ));
 
   return <RenderIndexes />;
 };
