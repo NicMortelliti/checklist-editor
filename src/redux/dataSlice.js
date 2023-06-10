@@ -61,6 +61,9 @@ export const dataSlice = createSlice({
       ...state,
       selectedSubIndex: action.payload,
     }),
+    addNewIndexItem: (state, action) => ({
+      ...state,
+    }),
   },
 });
 
@@ -70,5 +73,6 @@ export const {
   importFromJsonFailure,
   setSelectedIndex,
   setSelectedSubIndex,
+  addNewIndexItem,
 } = dataSlice.actions;
 export default dataSlice.reducer;
