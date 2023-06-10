@@ -1,22 +1,7 @@
-import { useGetSubIndexes } from '../../hooks/getItems';
-import { useDispatch, useSelector } from 'react-redux';
-import { setSelectedSubIndex } from '../../../redux/dataSlice';
-
 const SubIndexAddBtn = () => {
-  const dispatch = useDispatch();
-  const { selectedIndex } = useSelector((state) => state.data);
-  const subIndexes = useGetSubIndexes(selectedIndex);
-
-  const RenderSubIndexes = () =>
-    subIndexes.map((subIndex) => (
-      <button
-        key={subIndex.id}
-        onClick={() => dispatch(setSelectedSubIndex(subIndex))}>
-        {subIndex.text}
-      </button>
-    ));
-
-  return <RenderSubIndexes />;
+  return (
+    <button onClick={() => console.log('Add new Sub-index')}>Add Sub-Index</button>
+  );
 };
 
 export default SubIndexAddBtn;
