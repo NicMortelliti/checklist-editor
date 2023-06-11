@@ -1,7 +1,7 @@
-import NewBtn from './NewBtn';
-import ImportBtn from './ImportBtn';
+import { NewBtn } from './NewBtn';
+import { ImportBtn } from './ImportBtn';
 
-const ProjectSelect = () => {
+export const ProjectSelect = () => {
   return (
     <>
       <ImportBtn />
@@ -10,5 +10,3 @@ const ProjectSelect = () => {
     </>
   );
 };
-
-export default ProjectSelect;

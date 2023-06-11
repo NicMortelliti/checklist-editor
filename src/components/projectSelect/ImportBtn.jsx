@@ -6,7 +6,7 @@ import {
   importFromJsonFailure,
 } from '../../redux/dataSlice';
 
-const ImportBtn = () => {
+export const ImportBtn = () => {
   const dispatch = useDispatch();
 
   const handleFileUpload = (file) => {
@@ -34,5 +34,3 @@ const ImportBtn = () => {
     />
   );
 };
-
-export default ImportBtn;

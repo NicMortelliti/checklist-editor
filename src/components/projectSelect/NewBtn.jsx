@@ -1,7 +1,7 @@
 import { setOnBoarding } from '../../redux/uiSlice';
 import { useDispatch } from 'react-redux';
 
-const NewBtn = () => {
+export const NewBtn = () => {
   const dispatch = useDispatch();
   return (
     <button onClick={() => dispatch(setOnBoarding(false))}>
@@ -9,5 +9,3 @@ const NewBtn = () => {
     </button>
   );
 };
-
-export default NewBtn;

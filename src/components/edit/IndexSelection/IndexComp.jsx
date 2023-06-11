@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import IndexSelection from './IndexSelection';
-import IndexAddBtn from './IndexAddBtn';
+import { IndexSelection } from './IndexSelection';
+import { IndexAddBtn } from './IndexAddBtn';
 import { NewIndexForm } from './NewIndexForm';
 
-const IndexComp = () => {
+export const IndexComp = () => {
   const [formIsOpen, setFormIsOpen] = useState(false);
 
   return (
@@ -15,5 +15,3 @@ const IndexComp = () => {
     </>
   );
 };
-
-export default IndexComp;

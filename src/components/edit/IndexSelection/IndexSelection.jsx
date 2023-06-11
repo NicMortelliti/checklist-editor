@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useGetIndexes } from '../../hooks/getItems';
 import { setSelectedIndex } from '../../../redux/dataSlice';
 
-const IndexSelection = () => {
+export const IndexSelection = () => {
   const dispatch = useDispatch();
   const indexes = useGetIndexes();
 
@@ -12,5 +12,3 @@ const IndexSelection = () => {
     </button>
   ));
 };
-
-export default IndexSelection;

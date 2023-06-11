@@ -1,8 +1,8 @@
-import ProjectSelect from './projectSelect/ProjectSelect';
-import EditingInterface from './edit/EditingInterface';
+import { ProjectSelect } from './projectSelect/ProjectSelect';
+import { EditingInterface } from './edit/EditingInterface';
 import { useSelector } from 'react-redux';
 
-function App() {
+export const App = () => {
   const { onBoarding } = useSelector((state) => state.ui);
   const { selectedIndex, selectedSubIndex } = useSelector(
     (state) => state.data
@@ -22,6 +22,4 @@ function App() {
       <RenderInterface />
     </>
   );
-}
-
-export default App;
+};

@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import SubIndexSelection from './SubIndexSelection';
-import SubIndexAddBtn from './SubIndexAddBtn';
+import { SubIndexSelection } from './SubIndexSelection';
+import { SubIndexAddBtn } from './SubIndexAddBtn';
 import { NewSubIndexForm } from './NewSubIndexForm';
 
-const SubIndexComp = () => {
+export const SubIndexComp = () => {
   const [formIsOpen, setFormIsOpen] = useState(false);
 
   return (
@@ -15,5 +15,3 @@ const SubIndexComp = () => {
     </>
   );
 };
-
-export default SubIndexComp;

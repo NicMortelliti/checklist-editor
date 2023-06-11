@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
-import IndexComp from './IndexSelection/IndexComp';
-import SubIndexComp from './SubIndexSelection/SubIndexComp';
+import { IndexComp } from './IndexSelection/IndexComp';
+import { SubIndexComp } from './SubIndexSelection/SubIndexComp';
 
-const EditingInterface = () => {
+export const EditingInterface = () => {
   const { selectedIndex } = useSelector((state) => state.data);
 
   const RenderPage = () => {
@@ -15,5 +15,3 @@ const EditingInterface = () => {
 
   return <RenderPage />;
 };
-
-export default EditingInterface;

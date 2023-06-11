@@ -1,11 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useGetSubIndexes } from '../../hooks/getItems';
 import { setSelectedSubIndex } from '../../../redux/dataSlice';
 
-const SubIndexSelection = () => {
-  const { selectedIndex } = useSelector((state) => state.data);
+export const SubIndexSelection = () => {
   const dispatch = useDispatch();
-  const subIndexes = useGetSubIndexes(selectedIndex);
+  const subIndexes = useGetSubIndexes();
 
   return subIndexes.map((subIndex) => (
     <button
@@ -15,5 +14,3 @@ const SubIndexSelection = () => {
     </button>
   ));
 };
-
-export default SubIndexSelection;
