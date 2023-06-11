@@ -1,5 +1,5 @@
-const IndexAddBtn = ({ setFormIsOpen }) => {
-  return <button onClick={() => setFormIsOpen(true)}>Add Index</button>;
-};
+const IndexAddBtn = ({ setFormIsOpen }) => (
+  <button onClick={() => setFormIsOpen(true)}>Add Index</button>
+);
 
 export default IndexAddBtn;

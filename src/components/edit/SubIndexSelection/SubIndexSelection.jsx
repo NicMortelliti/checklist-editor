@@ -1,22 +1,19 @@
-import { useGetSubIndexes } from '../../hooks/getItems';
 import { useDispatch, useSelector } from 'react-redux';
+import { useGetSubIndexes } from '../../hooks/getItems';
 import { setSelectedSubIndex } from '../../../redux/dataSlice';
 
 const SubIndexSelection = () => {
-  const dispatch = useDispatch();
   const { selectedIndex } = useSelector((state) => state.data);
+  const dispatch = useDispatch();
   const subIndexes = useGetSubIndexes(selectedIndex);
 
-  const RenderSubIndexes = () =>
-    subIndexes.map((subIndex) => (
-      <button
-        key={subIndex.id}
-        onClick={() => dispatch(setSelectedSubIndex(subIndex))}>
-        {subIndex.text}
-      </button>
-    ));
-
-  return <RenderSubIndexes />;
+  return subIndexes.map((subIndex) => (
+    <button
+      key={subIndex.id}
+      onClick={() => dispatch(setSelectedSubIndex(subIndex))}>
+      {subIndex.text}
+    </button>
+  ));
 };
 
 export default SubIndexSelection;
