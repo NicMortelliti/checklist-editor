@@ -1,38 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuid } from 'uuid';
 
+const itemTemplate = {
+  id: uuid(),
+  text: '',
+  type: '',
+  cas_message: '',
+  latchable: '',
+  auto_sensed_bool: '',
+  invert_sensed_bool: '',
+  auto_reset_bool: '',
+  timer_sec: '',
+  sensed_timer_bool: '',
+  synoptic_link: '',
+  children: [],
+};
+
 const initialState = {
   loading: false,
   error: null,
-  selectedIndexId: 2,
-  indexes: [
-    {
-      key: uuid(),
-      text: 'Normal',
-    },
-    {
-      key: uuid(),
-      text: 'Non-Normal',
-    },
-    {
-      key: uuid(),
-      text: 'Procedure',
-    },
-  ],
-  subIndexes: [
-    {
-      key: uuid(),
-      text: 'Preflight',
-    },
-    {
-      key: uuid(),
-      text: 'Taxi',
-    },
-    {
-      key: uuid(),
-      text: 'Takeoff',
-    },
-  ],
+  selectedIndex: '',
+  selectedSubIndex: '',
   data: [],
 };
 
@@ -52,10 +40,47 @@ export const dataSlice = createSlice({
       state.error = action.payload;
       state.loading = false;
     },
-    updateData: (state, action) => ({
+    setSelectedIndex: (state, action) => ({
       ...state,
-      data: action.payload,
+      selectedIndex: action.payload,
     }),
+    setSelectedSubIndex: (state, action) => ({
+      ...state,
+      selectedSubIndex: action.payload,
+    }),
+    addNewIndexItem: (state, action) => ({
+      ...state,
+      data: [
+        ...state.data,
+        { ...itemTemplate, ...action.payload, type: 'index' },
+      ],
+    }),
+    addNewSubIndexItem: (state, action) => {
+      const indexOfSelectedIndex = state.data.findIndex(
+        (each) => each.id === state.selectedIndex.id
+      );
+
+      const newItem = {
+        ...itemTemplate,
+        ...action.payload,
+        type: 'sub-index',
+      };
+
+      const updatedData = state.data.map((item, index) => {
+        if (index === indexOfSelectedIndex) {
+          return {
+            ...item,
+            children: [...item.children, newItem],
+          };
+        }
+        return item;
+      });
+
+      return {
+        ...state,
+        data: updatedData,
+      };
+    },
   },
 });
 
@@ -63,6 +88,9 @@ export const {
   importFromJsonStart,
   importFromJsonSuccess,
   importFromJsonFailure,
-  updateData,
+  setSelectedIndex,
+  setSelectedSubIndex,
+  addNewIndexItem,
+  addNewSubIndexItem,
 } = dataSlice.actions;
 export default dataSlice.reducer;

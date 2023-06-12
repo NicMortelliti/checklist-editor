@@ -1,14 +1,12 @@
-import NewComp from './newProject/NewComp';
-import ImportComp from './importProject/ImportComp';
+import { NewBtn } from './NewBtn';
+import { ImportBtn } from './ImportBtn';
 
-const ProjectSelect = () => {
+export const ProjectSelect = () => {
   return (
     <>
-      <ImportComp />
+      <ImportBtn />
       <p>OR</p>
-      <NewComp />
+      <NewBtn />
     </>
   );
 };
-
-export default ProjectSelect;

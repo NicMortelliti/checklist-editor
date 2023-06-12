@@ -1,14 +1,17 @@
-import SubIndexSelection from './SubIndexSelection';
-import SubIndexAddBtn from './SubIndexAddBtn';
-import { List } from 'antd';
+import { useState } from 'react';
+import { SubIndexSelection } from './SubIndexSelection';
+import { SubIndexAddBtn } from './SubIndexAddBtn';
+import { NewSubIndexForm } from './NewSubIndexForm';
 
-const SubIndexComp = () => {
+export const SubIndexComp = () => {
+  const [formIsOpen, setFormIsOpen] = useState(false);
+
   return (
-    <List.Item>
+    <>
+      <h2>SubIndex</h2>
       <SubIndexSelection />
-      <SubIndexAddBtn />
-    </List.Item>
+      <SubIndexAddBtn setFormIsOpen={setFormIsOpen} />
+      {formIsOpen && <NewSubIndexForm setFormIsOpen={setFormIsOpen} />}
+    </>
   );
 };
-
-export default SubIndexComp;

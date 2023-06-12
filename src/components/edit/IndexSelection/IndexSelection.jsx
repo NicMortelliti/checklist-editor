@@ -1,16 +1,14 @@
-import { List } from 'antd';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useGetIndexes } from '../../hooks/getItems';
+import { setSelectedIndex } from '../../../redux/dataSlice';
 
-const IndexSelection = () => {
-  const { indexes } = useSelector((state) => state.data);
-  return (
-    <List
-      header={<>Indexes</>}
-      bordered
-      dataSource={indexes}
-      renderItem={(item) => <List.Item>{item.text}</List.Item>}
-    />
-  );
+export const IndexSelection = () => {
+  const dispatch = useDispatch();
+  const indexes = useGetIndexes();
+
+  return indexes.map((index) => (
+    <button key={index.id} onClick={() => dispatch(setSelectedIndex(index))}>
+      {index.text}
+    </button>
+  ));
 };
-
-export default IndexSelection;

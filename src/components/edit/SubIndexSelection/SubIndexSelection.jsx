@@ -1,16 +1,16 @@
-import { List } from 'antd';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useGetSubIndexes } from '../../hooks/getItems';
+import { setSelectedSubIndex } from '../../../redux/dataSlice';
 
-const SubIndexSelection = () => {
-  const { subIndexes } = useSelector((state) => state.data);
-  return (
-    <List
-      header={<>Sub-Indexes</>}
-      bordered
-      dataSource={subIndexes}
-      renderItem={(item) => <List.Item>{item.text}</List.Item>}
-    />
-  );
+export const SubIndexSelection = () => {
+  const dispatch = useDispatch();
+  const subIndexes = useGetSubIndexes();
+
+  return subIndexes.map((subIndex) => (
+    <button
+      key={subIndex.id}
+      onClick={() => dispatch(setSelectedSubIndex(subIndex))}>
+      {subIndex.text}
+    </button>
+  ));
 };
-
-export default SubIndexSelection;
