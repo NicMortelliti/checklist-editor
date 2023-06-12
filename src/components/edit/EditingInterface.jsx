@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { IndexComp } from './IndexSelection/IndexComp';
 import { SubIndexComp } from './SubIndexSelection/SubIndexComp';
 import { ChecklistComp } from './Checklist/ChecklistComp';
+import { TableComp } from './Table/TableComp';
 
 export const EditingInterface = () => {
   const { selectedIndex, selectedSubIndex } = useSelector(
@@ -18,5 +19,10 @@ export const EditingInterface = () => {
     }
   };
 
-  return <RenderPage />;
+  return (
+    <>
+      <RenderPage />
+      <TableComp />
+    </>
+  );
 };
