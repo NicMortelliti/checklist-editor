@@ -15,10 +15,8 @@ export const App = () => {
 
   return (
     <>
-      <p>{`Index: ${selectedIndex.text}, ${selectedIndex === true}`}</p>
-      <p>{`SubIndex: ${selectedSubIndex.text}, ${
-        selectedSubIndex === true
-      }`}</p>
+      <p>{`Index: ${selectedIndex.text}, ${selectedIndex.id}`}</p>
+      <p>{`SubIndex: ${selectedSubIndex.text}, ${selectedSubIndex.id}`}</p>
       <RenderInterface />
     </>
   );

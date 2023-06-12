@@ -24,6 +24,16 @@ const initialState = {
   data: [],
 };
 
+// Set the completed and id values for each item in the data set
+const updateImportedDataItemsRecursively = (items) =>
+  items.map((item) => {
+    const newItem = { ...item, id: uuid() };
+    if (newItem.children && newItem.children.length > 0) {
+      newItem.children = updateImportedDataItemsRecursively(newItem.children);
+    }
+    return newItem;
+  });
+
 export const dataSlice = createSlice({
   name: 'data',
   initialState,
@@ -33,7 +43,7 @@ export const dataSlice = createSlice({
       state.error = null;
     },
     importFromJsonSuccess(state, action) {
-      state.data = action.payload;
+      state.data = updateImportedDataItemsRecursively(action.payload);
       state.loading = false;
     },
     importFromJsonFailure(state, action) {
