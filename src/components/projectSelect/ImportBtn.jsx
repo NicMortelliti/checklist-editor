@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { setOnBoarding } from '../../redux/uiSlice';
 import {
@@ -5,12 +6,15 @@ import {
   importFromJsonSuccess,
   importFromJsonFailure,
 } from '../../redux/dataSlice';
+import { Button } from '@chakra-ui/react';
 
 export const ImportBtn = () => {
   const dispatch = useDispatch();
+  const fileInputRef = useRef(null);
 
-  const handleFileUpload = (file) => {
+  const handleFileUpload = (e) => {
     dispatch(importFromJsonStart());
+    const file = e.target.files[0];
 
     // Read the JSON file
     const reader = new FileReader();
@@ -27,10 +31,19 @@ export const ImportBtn = () => {
     reader.readAsText(file);
   };
 
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
+  };
+
   return (
-    <input
-      type='file'
-      onChange={(event) => handleFileUpload(event.target.files[0])}
-    />
+    <>
+      <Button onClick={handleButtonClick}>Import</Button>
+      <input
+        type='file'
+        ref={fileInputRef}
+        style={{ display: 'none' }}
+        onChange={handleFileUpload}
+      />
+    </>
   );
 };
