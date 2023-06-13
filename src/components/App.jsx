@@ -1,7 +1,6 @@
 import { ProjectSelect } from './projectSelect/ProjectSelect';
 import { EditingInterface } from './edit/EditingInterface';
 import { useSelector } from 'react-redux';
-import { NavBtns } from './navigation/NavBtns';
 
 export const App = () => {
   const { onBoarding } = useSelector((state) => state.ui);
@@ -12,7 +11,6 @@ export const App = () => {
 
   return (
     <>
-      <NavBtns />
       <RenderInterface />
     </>
   );
