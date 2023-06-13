@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 export const TableRows = () => {
   const { data } = useSelector((state) => state.data);
 
-  const RenderRows = () =>
-    data.map((eachRow) => {
+  const RenderRows = ({ data }) => {
+    const rows = data.map((eachRow) => {
       const {
         id,
         text,
@@ -19,7 +19,8 @@ export const TableRows = () => {
         sensed_timer_bool,
         synoptic_link,
       } = eachRow;
-      return (
+
+      const row = (
         <Tr key={id}>
           <Td>{text}</Td>
           <Td>{type}</Td>
@@ -34,11 +35,19 @@ export const TableRows = () => {
           <Td>{synoptic_link}</Td>
         </Tr>
       );
+
+      let renderedRows = [row];
+
+      if (eachRow.children && eachRow.children.length > 0) {
+        const childRows = <RenderRows key={id} data={eachRow.children} />;
+        renderedRows = [...renderedRows, childRows];
+      }
+
+      return renderedRows;
     });
 
-  return (
-    <Tbody>
-      <RenderRows />
-    </Tbody>
-  );
+    return rows;
+  };
+
+  return <Tbody>{<RenderRows data={data} />}</Tbody>;
 };
