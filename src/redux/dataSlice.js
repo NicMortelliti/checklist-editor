@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuid } from 'uuid';
 
 const itemTemplate = {
-  id: uuid(),
+  id: '',
   text: '',
   type: '',
   cas_message: '',
@@ -62,7 +62,7 @@ export const dataSlice = createSlice({
       ...state,
       data: [
         ...state.data,
-        { ...itemTemplate, ...action.payload, type: 'index' },
+        { ...itemTemplate, ...action.payload, type: 'index', id: uuid() },
       ],
     }),
     addNewSubIndexItem: (state, action) => {
@@ -74,6 +74,7 @@ export const dataSlice = createSlice({
         ...itemTemplate,
         ...action.payload,
         type: 'sub-index',
+        id: uuid(),
       };
 
       const updatedData = state.data.map((item, index) => {

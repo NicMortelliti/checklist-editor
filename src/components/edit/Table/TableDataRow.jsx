@@ -1,6 +1,9 @@
-import { Box, Td } from '@chakra-ui/react';
+import { Box, Icon, Select, Td, Tr } from '@chakra-ui/react';
+import { useSelector } from 'react-redux';
+import { RxMinus, RxPlus } from 'react-icons/rx';
 
-export const TableDataRow = ({ row, level, onClick }) => {
+export const TableDataRow = ({ row, level, isExpanded, onClick }) => {
+  const { rowActions } = useSelector((state) => state.ui);
   const indentStyles = {
     paddingLeft: `${level * 2}rem`, // Indentation based on level
   };
@@ -16,15 +19,51 @@ export const TableDataRow = ({ row, level, onClick }) => {
     timer_sec,
     sensed_timer_bool,
     synoptic_link,
+    children,
   } = row;
 
-  return (
+  const ActionSelect = () => (
+    <Select size='xs' iconSize='xs' variant='filled'>
+      {rowActions.map((eachAction) => (
+        <option key={eachAction} value={eachAction} color='red'>
+          {eachAction}
+        </option>
+      ))}
+    </Select>
+  );
+
+  // Render an expand/collapse icon if the row
+  // has children.
+  const RenderIcon = () => {
+    if (children.length > 0) {
+      if (isExpanded) {
+        return <Icon as={RxMinus} mr='8px' />;
+      }
+      return <Icon as={RxPlus} mr='8px' />;
+    }
+    return;
+  };
+
+  // The text cell has a little more complexity.
+  // Here, we're adding the ability to click the title cell
+  // to toggle child visibility.
+  const TextCell = () => (
     <Box
-      as='tr'
       onClick={onClick}
-      _hover={{ bg: 'gray.100', cursor: 'pointer' }}>
+      _hover={{ bg: 'gray.100', cursor: 'pointer' }}
+      style={indentStyles}>
+      <RenderIcon />
+      {text}
+    </Box>
+  );
+
+  return (
+    <Tr>
       <Td>
-        <Box style={indentStyles}>{text}</Box>
+        <ActionSelect />
+      </Td>
+      <Td>
+        <TextCell />
       </Td>
       <Td>{type}</Td>
       <Td>{cas_message}</Td>
@@ -36,6 +75,6 @@ export const TableDataRow = ({ row, level, onClick }) => {
       <Td>{sensed_timer_bool}</Td>
       <Td>{sensed_timer_bool}</Td>
       <Td>{synoptic_link}</Td>
-    </Box>
+    </Tr>
   );
 };

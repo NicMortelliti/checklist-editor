@@ -3,33 +3,31 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   onBoarding: true,
   columns: [
-    { title: 'Tree', dataIndex: 'text', key: 'text' },
-    { title: 'Type', dataIndex: 'type', key: 'type' },
-    { title: 'CAS Message', dataIndex: 'cas_message', key: 'casMessage' },
-    { title: 'Latchable', dataIndex: 'latchable', key: 'latchable' },
+    { title: '', key: 'rowAction' },
+    { title: 'Text', key: 'text' },
+    { title: 'Type', key: 'type' },
+    { title: 'CAS Message', key: 'casMessage' },
+    { title: 'Latchable', key: 'latchable' },
     {
       title: 'Auto Sensed Boolean',
-      dataIndex: 'auto_sensed_boolean',
       key: 'autoSensedBoolean',
     },
     {
       title: 'Invert Sensed Bool',
-      dataIndex: 'invert_sensed_bool',
       key: 'invertSensedBool',
     },
     {
       title: 'Auto Reset Bool',
-      dataIndex: 'auto_reset_bool',
       key: 'autoResetBool',
     },
-    { title: 'Timer Sec', dataIndex: 'timer_sec', key: 'timerSec' },
+    { title: 'Timer Sec', key: 'timerSec' },
     {
       title: 'Sensed Timer Bool',
-      dataIndex: 'sensed_timer_bool',
       key: 'sensedTimerBool',
     },
-    { title: 'Synoptic Link', dataIndex: 'synoptic_link', key: 'synopticLink' },
+    { title: 'Synoptic Link', key: 'synopticLink' },
   ],
+  rowActions: ['Add Child Item', 'Delete'],
 };
 
 export const uiSlice = createSlice({

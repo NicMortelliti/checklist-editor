@@ -1,3 +1,4 @@
+import React from 'react';
 import { TableDataRow } from './TableDataRow';
 
 export const TableRenderRows = ({
@@ -24,6 +25,7 @@ export const TableRenderRows = ({
         key={eachRow.id}
         row={eachRow}
         level={level}
+        isExpanded={isExpanded}
         onClick={() => handleRowClick(eachRow.id)}
       />
     );
@@ -31,15 +33,16 @@ export const TableRenderRows = ({
     // Render children of current item if expanded
     if (eachRow.children && eachRow.children.length > 0 && isExpanded) {
       renderedRows = (
-        <>
+        <React.Fragment key={eachRow.id}>
           {renderedRows}
           <TableRenderRows
             data={eachRow.children}
             level={level + 1}
             expandedRows={expandedRows}
+            isExpanded={isExpanded}
             setExpandedRows={setExpandedRows}
           />
-        </>
+        </React.Fragment>
       );
     }
 
