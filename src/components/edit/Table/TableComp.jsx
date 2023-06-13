@@ -1,13 +1,13 @@
 import { Table, TableContainer } from '@chakra-ui/react';
 import { TableHeaders } from './TableHeaders';
-import { TableRows } from './TableRows';
+import { TableContent } from './TableContent';
 
 export const TableComp = () => {
   return (
     <TableContainer>
       <Table colorScheme='teal' size='sm'>
         <TableHeaders />
-        <TableRows />
+        <TableContent />
       </Table>
     </TableContainer>
   );

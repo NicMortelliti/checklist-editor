@@ -24,7 +24,6 @@ export const TableRenderRows = ({
         key={eachRow.id}
         row={eachRow}
         level={level}
-        isExpanded={isExpanded}
         onClick={() => handleRowClick(eachRow.id)}
       />
     );
