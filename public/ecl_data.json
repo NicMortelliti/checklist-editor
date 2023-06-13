@@ -105,7 +105,7 @@
           {
             "id": "",
             "text": "ICE CONDITIONS?",
-            "type": "conditional_parent",
+            "type": "conditional-parent",
             "cas_message": "",
             "latchable": "",
             "auto_sensed_bool": "",
@@ -118,7 +118,7 @@
               {
                 "id": "",
                 "text": "YES",
-                "type": "conditional_child",
+                "type": "conditional-child",
                 "cas_message": "",
                 "latchable": "",
                 "auto_sensed_bool": "",
@@ -147,7 +147,7 @@
               {
                 "id": "",
                 "text": "NO",
-                "type": "conditional_child",
+                "type": "conditional-child",
                 "cas_message": "",
                 "latchable": "",
                 "auto_sensed_bool": "",
@@ -163,7 +163,7 @@
           {
             "id": "",
             "text": "MSLI Parent",
-            "type": "msli_parent",
+            "type": "msli-parent",
             "cas_message": "",
             "latchable": "",
             "auto_sensed_bool": "",
@@ -176,7 +176,7 @@
               {
                 "id": "",
                 "text": "MSLI 1",
-                "type": "msli_child",
+                "type": "msli-child",
                 "cas_message": "",
                 "latchable": "",
                 "auto_sensed_bool": "",
@@ -190,7 +190,7 @@
               {
                 "id": "",
                 "text": "MSLI 2",
-                "type": "msli_child",
+                "type": "msli-child",
                 "cas_message": "",
                 "latchable": "",
                 "auto_sensed_bool": "",
@@ -204,7 +204,7 @@
               {
                 "id": "",
                 "text": "MSLI 3",
-                "type": "msli_child",
+                "type": "msli-child",
                 "cas_message": "",
                 "latchable": "",
                 "auto_sensed_bool": "",
@@ -218,7 +218,7 @@
               {
                 "id": "",
                 "text": "MSLI 4",
-                "type": "msli_child",
+                "type": "msli-child",
                 "cas_message": "",
                 "latchable": "",
                 "auto_sensed_bool": "",
@@ -232,7 +232,7 @@
               {
                 "id": "",
                 "text": "MSLI 5",
-                "type": "msli_child",
+                "type": "msli-child",
                 "cas_message": "",
                 "latchable": "",
                 "auto_sensed_bool": "",
@@ -246,20 +246,6 @@
             ]
           }
         ]
-      },
-      {
-        "id": "",
-        "text": "Do altimeters agree?",
-        "type": "conditional",
-        "cas_message": "",
-        "latchable": "",
-        "auto_sensed_bool": "",
-        "invert_sensed_bool": "",
-        "auto_reset_bool": "",
-        "timer_sec": "",
-        "sensed_timer_bool": "",
-        "synoptic_link": "",
-        "children": []
       }
     ]
   },

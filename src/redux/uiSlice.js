@@ -28,6 +28,15 @@ const initialState = {
     { title: 'Synoptic Link', key: 'synopticLink' },
   ],
   rowActions: ['Add Child Item', 'Delete'],
+  typeColors: {
+    index: 'teal',
+    'sub-index': 'cyan',
+    checklist: 'messenger',
+    'conditional-parent': 'orange',
+    'conditional-child': 'yellow',
+    'msli-parent': 'pink',
+    'msli-child': 'red',
+  },
 };
 
 export const uiSlice = createSlice({

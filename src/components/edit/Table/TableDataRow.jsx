@@ -1,11 +1,11 @@
-import { Box, Icon, Select, Td, Tr } from '@chakra-ui/react';
+import { Box, Icon, Select, Tag, Td, Tr } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 import { RxMinus, RxPlus } from 'react-icons/rx';
 
 export const TableDataRow = ({ row, level, isExpanded, onClick }) => {
-  const { rowActions } = useSelector((state) => state.ui);
+  const { rowActions, typeColors } = useSelector((state) => state.ui);
   const indentStyles = {
-    paddingLeft: `${level * 2}rem`, // Indentation based on level
+    paddingLeft: `${level * 1}rem`, // Indentation based on level
   };
 
   const {
@@ -57,6 +57,19 @@ export const TableDataRow = ({ row, level, isExpanded, onClick }) => {
     </Box>
   );
 
+  const TypeTag = () => {
+    // Capitalize first character in string
+    const capitalizedType = type.charAt(0).toUpperCase() + type.slice(1);
+
+    return (
+      <Box style={indentStyles}>
+        <Tag size='sm' borderRadius='full' colorScheme={typeColors[type]}>
+          {capitalizedType}
+        </Tag>
+      </Box>
+    );
+  };
+
   return (
     <Tr>
       <Td>
@@ -65,7 +78,9 @@ export const TableDataRow = ({ row, level, isExpanded, onClick }) => {
       <Td>
         <TextCell />
       </Td>
-      <Td>{type}</Td>
+      <Td>
+        <TypeTag />
+      </Td>
       <Td>{cas_message}</Td>
       <Td>{latchable}</Td>
       <Td>{auto_sensed_bool}</Td>
