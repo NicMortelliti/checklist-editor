@@ -2,9 +2,8 @@
   {
     "id": "",
     "text": "Normal",
-    "challenge_text": "required",
-    "response_text": "not required",
-    "extension_text": "not required",
+    "response_text": "",
+    "extension_text": "",
     "type": "index",
     "cas_message": "",
     "latchable": "",
@@ -18,6 +17,8 @@
       {
         "id": "",
         "text": "Taxi",
+        "response_text": "",
+        "extension_text": "",
         "type": "sub-index",
         "cas_message": "",
         "latchable": "",
@@ -31,6 +32,8 @@
           {
             "id": "",
             "text": "TAXI LIGHTS",
+            "response_text": "ON",
+            "extension_text": "",
             "type": "checklist",
             "cas_message": "",
             "latchable": "",
@@ -47,6 +50,8 @@
       {
         "id": "",
         "text": "Before Landing",
+        "response_text": "",
+        "extension_text": "",
         "type": "sub-index",
         "cas_message": "",
         "latchable": "",
@@ -60,6 +65,8 @@
           {
             "id": "",
             "text": "GEAR",
+            "response_text": "",
+            "extension_text": "",
             "type": "checklist",
             "cas_message": "",
             "latchable": "",
@@ -74,6 +81,8 @@
           {
             "id": "",
             "text": "LANDING LIGHTS",
+            "response_text": "",
+            "extension_text": "",
             "type": "checklist",
             "cas_message": "",
             "latchable": "",
@@ -87,8 +96,7 @@
           },
           {
             "id": "",
-            "text": "Cabin Alt <-- Not in challenge field",
-            "challenge_text": "Cabin Alt",
+            "text": "Cabin Alt",
             "response_text": "Set",
             "extension_text": "Alt   Cabin Alt\n8000.....500\n10000....800\n15000...1400",
             "type": "checklist",
@@ -105,6 +113,8 @@
           {
             "id": "",
             "text": "ICE CONDITIONS?",
+            "response_text": "",
+            "extension_text": "",
             "type": "conditional-parent",
             "cas_message": "",
             "latchable": "",
@@ -118,6 +128,8 @@
               {
                 "id": "",
                 "text": "YES",
+                "response_text": "",
+                "extension_text": "",
                 "type": "conditional-child",
                 "cas_message": "",
                 "latchable": "",
@@ -131,6 +143,8 @@
                   {
                     "id": "",
                     "text": "KEEP FLYING!",
+                    "response_text": "",
+                    "extension_text": "",
                     "type": "checklist",
                     "cas_message": "",
                     "latchable": "",
@@ -147,6 +161,8 @@
               {
                 "id": "",
                 "text": "NO",
+                "response_text": "",
+                "extension_text": "",
                 "type": "conditional-child",
                 "cas_message": "",
                 "latchable": "",
@@ -163,6 +179,8 @@
           {
             "id": "",
             "text": "MSLI Parent",
+            "response_text": "",
+            "extension_text": "",
             "type": "msli-parent",
             "cas_message": "",
             "latchable": "",
@@ -176,6 +194,8 @@
               {
                 "id": "",
                 "text": "MSLI 1",
+                "response_text": "",
+                "extension_text": "",
                 "type": "msli-child",
                 "cas_message": "",
                 "latchable": "",
@@ -190,6 +210,8 @@
               {
                 "id": "",
                 "text": "MSLI 2",
+                "response_text": "",
+                "extension_text": "",
                 "type": "msli-child",
                 "cas_message": "",
                 "latchable": "",
@@ -204,6 +226,8 @@
               {
                 "id": "",
                 "text": "MSLI 3",
+                "response_text": "",
+                "extension_text": "",
                 "type": "msli-child",
                 "cas_message": "",
                 "latchable": "",
@@ -218,6 +242,8 @@
               {
                 "id": "",
                 "text": "MSLI 4",
+                "response_text": "",
+                "extension_text": "",
                 "type": "msli-child",
                 "cas_message": "",
                 "latchable": "",
@@ -232,6 +258,8 @@
               {
                 "id": "",
                 "text": "MSLI 5",
+                "response_text": "",
+                "extension_text": "",
                 "type": "msli-child",
                 "cas_message": "",
                 "latchable": "",
@@ -252,6 +280,8 @@
   {
     "id": "",
     "text": "Non-Normal",
+    "response_text": "",
+    "extension_text": "",
     "type": "index",
     "cas_message": "",
     "latchable": "",
@@ -266,6 +296,8 @@
   {
     "id": "",
     "text": "Procedure",
+    "response_text": "",
+    "extension_text": "",
     "type": "index",
     "cas_message": "",
     "latchable": "",

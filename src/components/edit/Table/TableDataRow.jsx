@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import { RxMinus, RxPlus } from 'react-icons/rx';
 import { ActionComp } from '../actions/ActionComp';
 
+const maxLineLength = 30;
+
 export const TableDataRow = ({ row, level, isExpanded, onClick }) => {
   const { typeColors } = useSelector((state) => state.ui);
   const indentStyles = {
@@ -11,6 +13,8 @@ export const TableDataRow = ({ row, level, isExpanded, onClick }) => {
 
   const {
     text,
+    response_text,
+    extension_text,
     type,
     cas_message,
     latchable,
@@ -23,8 +27,7 @@ export const TableDataRow = ({ row, level, isExpanded, onClick }) => {
     children,
   } = row;
 
-  // Render an expand/collapse icon if the row
-  // has children.
+  // Render an expand/collapse icon if the row has children.
   const RenderIcon = () => {
     if (children.length > 0) {
       if (isExpanded) {
@@ -32,21 +35,31 @@ export const TableDataRow = ({ row, level, isExpanded, onClick }) => {
       }
       return <Icon as={RxPlus} mr='8px' />;
     }
-    return;
+    return null;
   };
 
-  // The text cell has a little more complexity.
-  // Here, we're adding the ability to click the title cell
-  // to toggle child visibility.
-  const TextCell = () => (
-    <Box
-      onClick={onClick}
-      _hover={{ bg: 'gray.100', cursor: 'pointer' }}
-      style={indentStyles}>
-      <RenderIcon />
-      {text}
-    </Box>
-  );
+  // The text cell has a little more complexity. Here, we're adding
+  // the ability to click the title cell to toggle child visibility.
+  const TextCell = () => {
+    const challenge = text.toString();
+    const response = response_text.toString();
+    const spacer = '.'.repeat(
+      maxLineLength - challenge.length - response.length
+    );
+    const extension = extension_text ? extension_text.toString() : null;
+
+    const line = () => (response ? challenge + spacer + response : challenge);
+
+    return (
+      <Box
+        onClick={onClick}
+        _hover={{ bg: 'gray.100', cursor: 'pointer' }}
+        style={indentStyles}>
+        <RenderIcon />
+        {line()}
+      </Box>
+    );
+  };
 
   const TypeTag = () => {
     // Capitalize first character in string

@@ -4,6 +4,8 @@ import { v4 as uuid } from 'uuid';
 const itemTemplate = {
   id: '',
   text: '',
+  response_text: '',
+  extension_text: '',
   type: '',
   cas_message: '',
   latchable: '',
