@@ -27,7 +27,6 @@ const initialState = {
     },
     { title: 'Synoptic Link', key: 'synopticLink' },
   ],
-  rowActions: ['Add Child Item', 'Delete'],
   typeColors: {
     index: 'teal',
     'sub-index': 'cyan',

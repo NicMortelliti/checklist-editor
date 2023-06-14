@@ -1,9 +1,10 @@
-import { Box, Icon, Select, Tag, Td, Tr } from '@chakra-ui/react';
+import { Box, Icon, Tag, Td, Tr } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 import { RxMinus, RxPlus } from 'react-icons/rx';
+import { ActionComp } from '../actions/ActionComp';
 
 export const TableDataRow = ({ row, level, isExpanded, onClick }) => {
-  const { rowActions, typeColors } = useSelector((state) => state.ui);
+  const { typeColors } = useSelector((state) => state.ui);
   const indentStyles = {
     paddingLeft: `${level * 1}rem`, // Indentation based on level
   };
@@ -21,16 +22,6 @@ export const TableDataRow = ({ row, level, isExpanded, onClick }) => {
     synoptic_link,
     children,
   } = row;
-
-  const ActionSelect = () => (
-    <Select size='xs' iconSize='xs' variant='filled'>
-      {rowActions.map((eachAction) => (
-        <option key={eachAction} value={eachAction} color='red'>
-          {eachAction}
-        </option>
-      ))}
-    </Select>
-  );
 
   // Render an expand/collapse icon if the row
   // has children.
@@ -73,7 +64,7 @@ export const TableDataRow = ({ row, level, isExpanded, onClick }) => {
   return (
     <Tr>
       <Td>
-        <ActionSelect />
+        <ActionComp />
       </Td>
       <Td>
         <TextCell />
