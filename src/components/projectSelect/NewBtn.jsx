@@ -1,11 +1,12 @@
 import { setOnBoarding } from '../../redux/uiSlice';
 import { useDispatch } from 'react-redux';
+import { Button } from '@chakra-ui/react';
 
 export const NewBtn = () => {
   const dispatch = useDispatch();
   return (
-    <button onClick={() => dispatch(setOnBoarding(false))}>
+    <Button onClick={() => dispatch(setOnBoarding(false))}>
       New Checklist
-    </button>
+    </Button>
   );
 };

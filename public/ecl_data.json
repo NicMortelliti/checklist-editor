@@ -1,7 +1,9 @@
 [
   {
-    "id": 1,
+    "id": "",
     "text": "Normal",
+    "response_text": "",
+    "extension_text": "",
     "type": "index",
     "cas_message": "",
     "latchable": "",
@@ -13,22 +15,10 @@
     "synoptic_link": "",
     "children": [
       {
-        "id": 17,
+        "id": "",
         "text": "Taxi",
-        "type": "sub-index",
-        "cas_message": "",
-        "latchable": "",
-        "auto_sensed_bool": "",
-        "invert_sensed_bool": "",
-        "auto_reset_bool": "",
-        "timer_sec": "",
-        "sensed_timer_bool": "",
-        "synoptic_link": "",
-        "children": []
-      },
-      {
-        "id": 2,
-        "text": "Before Landing",
+        "response_text": "",
+        "extension_text": "",
         "type": "sub-index",
         "cas_message": "",
         "latchable": "",
@@ -40,8 +30,43 @@
         "synoptic_link": "",
         "children": [
           {
-            "id": 6,
+            "id": "",
+            "text": "TAXI LIGHTS",
+            "response_text": "ON",
+            "extension_text": "",
+            "type": "checklist",
+            "cas_message": "",
+            "latchable": "",
+            "auto_sensed_bool": "",
+            "invert_sensed_bool": "",
+            "auto_reset_bool": "",
+            "timer_sec": "",
+            "sensed_timer_bool": "",
+            "synoptic_link": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "",
+        "text": "Before Landing",
+        "response_text": "",
+        "extension_text": "",
+        "type": "sub-index",
+        "cas_message": "",
+        "latchable": "",
+        "auto_sensed_bool": "",
+        "invert_sensed_bool": "",
+        "auto_reset_bool": "",
+        "timer_sec": "",
+        "sensed_timer_bool": "",
+        "synoptic_link": "",
+        "children": [
+          {
+            "id": "",
             "text": "GEAR",
+            "response_text": "DOWN",
+            "extension_text": "",
             "type": "checklist",
             "cas_message": "",
             "latchable": "",
@@ -54,8 +79,10 @@
             "children": []
           },
           {
-            "id": 16,
+            "id": "",
             "text": "LANDING LIGHTS",
+            "response_text": "ON",
+            "extension_text": "",
             "type": "checklist",
             "cas_message": "",
             "latchable": "",
@@ -68,9 +95,27 @@
             "children": []
           },
           {
-            "id": 7,
+            "id": "",
+            "text": "Cabin Alt",
+            "response_text": "Set",
+            "extension_text": "Alt   Cabin Alt\n8000.....500\n10000....800\n15000...1400",
+            "type": "checklist",
+            "cas_message": "",
+            "latchable": "",
+            "auto_sensed_bool": "",
+            "invert_sensed_bool": "",
+            "auto_reset_bool": "",
+            "timer_sec": "",
+            "sensed_timer_bool": "",
+            "synoptic_link": "",
+            "children": []
+          },
+          {
+            "id": "",
             "text": "ICE CONDITIONS?",
-            "type": "conditional_parent",
+            "response_text": "",
+            "extension_text": "",
+            "type": "conditional-parent",
             "cas_message": "",
             "latchable": "",
             "auto_sensed_bool": "",
@@ -81,9 +126,11 @@
             "synoptic_link": "",
             "children": [
               {
-                "id": 8,
+                "id": "",
                 "text": "YES",
-                "type": "conditional_child",
+                "response_text": "",
+                "extension_text": "",
+                "type": "conditional-child",
                 "cas_message": "",
                 "latchable": "",
                 "auto_sensed_bool": "",
@@ -94,8 +141,10 @@
                 "synoptic_link": "",
                 "children": [
                   {
-                    "id": 18,
+                    "id": "",
                     "text": "KEEP FLYING!",
+                    "response_text": "",
+                    "extension_text": "",
                     "type": "checklist",
                     "cas_message": "",
                     "latchable": "",
@@ -110,9 +159,11 @@
                 ]
               },
               {
-                "id": 9,
+                "id": "",
                 "text": "NO",
-                "type": "conditional_child",
+                "response_text": "",
+                "extension_text": "",
+                "type": "conditional-child",
                 "cas_message": "",
                 "latchable": "",
                 "auto_sensed_bool": "",
@@ -126,9 +177,11 @@
             ]
           },
           {
-            "id": 10,
+            "id": "",
             "text": "MSLI Parent",
-            "type": "msli_parent",
+            "response_text": "",
+            "extension_text": "",
+            "type": "msli-parent",
             "cas_message": "",
             "latchable": "",
             "auto_sensed_bool": "",
@@ -139,9 +192,11 @@
             "synoptic_link": "",
             "children": [
               {
-                "id": 11,
+                "id": "",
                 "text": "MSLI 1",
-                "type": "msli_child",
+                "response_text": "",
+                "extension_text": "",
+                "type": "msli-child",
                 "cas_message": "",
                 "latchable": "",
                 "auto_sensed_bool": "",
@@ -150,12 +205,14 @@
                 "timer_sec": "",
                 "sensed_timer_bool": "",
                 "synoptic_link": "",
-                "children": [16]
+                "children": []
               },
               {
-                "id": 12,
+                "id": "",
                 "text": "MSLI 2",
-                "type": "msli_child",
+                "response_text": "",
+                "extension_text": "",
+                "type": "msli-child",
                 "cas_message": "",
                 "latchable": "",
                 "auto_sensed_bool": "",
@@ -167,9 +224,11 @@
                 "children": []
               },
               {
-                "id": 13,
+                "id": "",
                 "text": "MSLI 3",
-                "type": "msli_child",
+                "response_text": "",
+                "extension_text": "",
+                "type": "msli-child",
                 "cas_message": "",
                 "latchable": "",
                 "auto_sensed_bool": "",
@@ -181,9 +240,11 @@
                 "children": []
               },
               {
-                "id": 14,
+                "id": "",
                 "text": "MSLI 4",
-                "type": "msli_child",
+                "response_text": "",
+                "extension_text": "",
+                "type": "msli-child",
                 "cas_message": "",
                 "latchable": "",
                 "auto_sensed_bool": "",
@@ -195,9 +256,11 @@
                 "children": []
               },
               {
-                "id": 15,
+                "id": "",
                 "text": "MSLI 5",
-                "type": "msli_child",
+                "response_text": "",
+                "extension_text": "",
+                "type": "msli-child",
                 "cas_message": "",
                 "latchable": "",
                 "auto_sensed_bool": "",
@@ -211,26 +274,14 @@
             ]
           }
         ]
-      },
-      {
-        "id": 3,
-        "text": "Do altimeters agree?",
-        "type": "conditional",
-        "cas_message": "",
-        "latchable": "",
-        "auto_sensed_bool": "",
-        "invert_sensed_bool": "",
-        "auto_reset_bool": "",
-        "timer_sec": "",
-        "sensed_timer_bool": "",
-        "synoptic_link": "",
-        "children": []
       }
     ]
   },
   {
-    "id": 4,
+    "id": "",
     "text": "Non-Normal",
+    "response_text": "",
+    "extension_text": "",
     "type": "index",
     "cas_message": "",
     "latchable": "",
@@ -243,8 +294,10 @@
     "children": []
   },
   {
-    "id": 5,
+    "id": "",
     "text": "Procedure",
+    "response_text": "",
+    "extension_text": "",
     "type": "index",
     "cas_message": "",
     "latchable": "",

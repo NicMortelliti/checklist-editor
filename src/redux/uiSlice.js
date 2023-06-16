@@ -2,52 +2,27 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   onBoarding: true,
+  modal: '',
   columns: [
-    {
-      title: 'Text',
-      dataIndex: 'text',
-      key: 'text',
-      editable: true,
-      required: true,
-    },
-    {
-      title: 'Type',
-      dataIndex: 'type',
-      key: 'type',
-      editable: true,
-      required: true,
-    },
-    {
-      title: 'CAS Message',
-      dataIndex: 'cas_message',
-      key: 'casMessage',
-      editable: true,
-      required: false,
-    },
-    {
-      title: 'Latchable',
-      dataIndex: 'latchable',
-      key: 'latchable',
-      editable: true,
-      required: false,
-    },
+    { title: '', key: 'rowAction' },
+    { title: 'Text', key: 'text' },
+    { title: 'Type', key: 'type' },
+    { title: 'CAS Message', key: 'casMessage' },
+    { title: 'Latchable', key: 'latchable' },
     {
       title: 'Auto Sensed Boolean',
-      dataIndex: 'auto_sensed_boolean',
       key: 'autoSensedBoolean',
       editable: true,
       required: false,
     },
     {
       title: 'Invert Sensed Bool',
-      dataIndex: 'invert_sensed_bool',
       key: 'invertSensedBool',
       editable: true,
       required: false,
     },
     {
       title: 'Auto Reset Bool',
-      dataIndex: 'auto_reset_bool',
       key: 'autoResetBool',
       editable: true,
       required: false,
@@ -59,9 +34,9 @@ const initialState = {
       editable: true,
       required: false,
     },
+    { title: 'Timer Sec', key: 'timerSec' },
     {
       title: 'Sensed Timer Bool',
-      dataIndex: 'sensed_timer_bool',
       key: 'sensedTimerBool',
       editable: true,
       required: false,
@@ -73,7 +48,17 @@ const initialState = {
       editable: true,
       required: false,
     },
+    { title: 'Synoptic Link', dataIndex: 'synoptic_link', key: 'synopticLink' },
   ],
+  typeColors: {
+    index: 'teal',
+    'sub-index': 'cyan',
+    checklist: 'messenger',
+    'conditional-parent': 'orange',
+    'conditional-child': 'yellow',
+    'msli-parent': 'pink',
+    'msli-child': 'red',
+  },
 };
 
 export const uiSlice = createSlice({
@@ -84,8 +69,12 @@ export const uiSlice = createSlice({
       ...state,
       onBoarding: action.payload,
     }),
+    setModal: (state, action) => ({
+      ...state,
+      modal: action.payload,
+    }),
   },
 });
 
-export const { setOnBoarding } = uiSlice.actions;
+export const { setOnBoarding, setModal } = uiSlice.actions;
 export default uiSlice.reducer;

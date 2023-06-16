@@ -1,20 +1,3 @@
-import { Table } from 'antd';
-import { useSelector } from 'react-redux';
+import { TableComp } from './Table/TableComp';
 
-export const EditingInterface = () => {
-  const { selectedIndex, selectedSubIndex } = useSelector(
-    (state) => state.data
-  );
-
-  const RenderPage = () => {
-    if (selectedSubIndex) {
-      return <ChecklistComp />;
-    } else if (selectedIndex) {
-      return <SubIndexComp />;
-    } else {
-      return <IndexComp />;
-    }
-  };
-
-  return <RenderPage />;
-};
+export const EditingInterface = () => <TableComp />;
