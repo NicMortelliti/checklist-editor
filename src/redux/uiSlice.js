@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   onBoarding: true,
+  modal: '',
   columns: [
     { title: '', key: 'rowAction' },
     { title: 'Text', key: 'text' },
@@ -46,8 +47,12 @@ export const uiSlice = createSlice({
       ...state,
       onBoarding: action.payload,
     }),
+    setModal: (state, action) => ({
+      ...state,
+      modal: action.payload,
+    }),
   },
 });
 
-export const { setOnBoarding } = uiSlice.actions;
+export const { setOnBoarding, setModal } = uiSlice.actions;
 export default uiSlice.reducer;
