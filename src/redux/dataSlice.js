@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuid } from 'uuid';
+import { searchById } from '../helpers/searchFunctions';
 
 const itemTemplate = {
   id: '',
@@ -23,6 +24,7 @@ const initialState = {
   error: null,
   selectedIndex: '',
   selectedSubIndex: '',
+  selectedChecklistItem: '',
   data: [],
 };
 
@@ -35,6 +37,24 @@ const updateImportedDataItemsRecursively = (items) =>
     }
     return newItem;
   });
+
+// Delete an item from the data array
+const deleteItemFromData = (items, id) => {
+  const newItemsArray = items.map((item) => ({ ...item }));
+  let currentArray = newItemsArray;
+  const indexOfItem = searchById(items, id);
+  const lastArrayIndex = indexOfItem[indexOfItem.length - 1];
+
+  indexOfItem.slice(0, -1).forEach((eachArrayIndex) => {
+    currentArray = currentArray[eachArrayIndex].children = currentArray[
+      eachArrayIndex
+    ].children.map((child) => ({ ...child }));
+  });
+
+  currentArray.splice(lastArrayIndex, 1);
+
+  return newItemsArray;
+};
 
 export const dataSlice = createSlice({
   name: 'data',
@@ -94,6 +114,18 @@ export const dataSlice = createSlice({
         data: updatedData,
       };
     },
+    setSelectedChecklistItem: (state, action) => ({
+      ...state,
+      selectedChecklistItem: action.payload,
+    }),
+    deleteItem: (state) => {
+      const { data, selectedChecklistItem: id } = state;
+      const newArray = deleteItemFromData(data, id);
+      return {
+        ...state,
+        data: newArray,
+      };
+    },
   },
 });
 
@@ -105,5 +137,7 @@ export const {
   setSelectedSubIndex,
   addNewIndexItem,
   addNewSubIndexItem,
+  setSelectedChecklistItem,
+  deleteItem,
 } = dataSlice.actions;
 export default dataSlice.reducer;

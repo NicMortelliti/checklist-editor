@@ -77,7 +77,7 @@ export const TableDataRow = ({ row, level, isExpanded, onClick }) => {
   return (
     <Tr>
       <Td>
-        <ActionComp />
+        <ActionComp objData={row} />
       </Td>
       <Td>
         <TextCell />

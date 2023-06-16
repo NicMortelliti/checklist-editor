@@ -11,12 +11,20 @@ import {
 } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setModal } from '../../../redux/uiSlice';
+import { deleteItem } from '../../../redux/dataSlice';
 
 export const DeleteModal = () => {
   const dispatch = useDispatch();
   const { modal } = useSelector((state) => state.ui);
+  const { selectedChecklistItem } = (state) => state.data;
 
   const handleCancel = () => dispatch(setModal(''));
+  const handleDelete = (e) => {
+    e.preventDefault();
+    dispatch(setModal(''));
+    dispatch(deleteItem(selectedChecklistItem));
+  };
+
   return (
     <Modal isOpen={modal} onClose={() => handleCancel()} isCentered>
       <ModalContent>
@@ -31,10 +39,12 @@ export const DeleteModal = () => {
             </Text>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme='red' mr={3} onClick={()=>console.log('hello world')}>
+            <Button colorScheme='red' mr={3} onClick={(e) => handleDelete(e)}>
               Delete
             </Button>
-            <Button variant='ghost' onClick={() => handleCancel()}>Cancel</Button>
+            <Button variant='ghost' onClick={() => handleCancel()}>
+              Cancel
+            </Button>
           </ModalFooter>
         </ModalContent>
       </ModalContent>

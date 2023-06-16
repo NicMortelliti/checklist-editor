@@ -2,8 +2,15 @@ import { IconButton } from '@chakra-ui/react';
 import { RxCross1 } from 'react-icons/rx';
 import { useDispatch } from 'react-redux';
 import { setModal } from '../../../redux/uiSlice';
+import { setSelectedChecklistItem } from '../../../redux/dataSlice';
 
-export const Delete = () => {
+export const Delete = ({ objData }) => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(setSelectedChecklistItem(objData.id));
+    dispatch(setModal('delete'));
+  };
+
   const dispatch = useDispatch();
   return (
     <>
@@ -11,7 +18,7 @@ export const Delete = () => {
         icon={<RxCross1 />}
         size='xs'
         colorScheme='red'
-        onClick={() => dispatch(setModal('delete'))}
+        onClick={(e) => handleClick(e)}
       />
     </>
   );
