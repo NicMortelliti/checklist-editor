@@ -1,10 +1,7 @@
-export const recursiveObjSearch = (dataSet, id, returnType) => {
+export const recursiveObjSearch = (dataSet, id) => {
   const recursiveSearch = (dataArray, id) => {
     for (const obj of dataArray) {
       if (obj.id === id) {
-        if (returnType === 'index') {
-          return dataSet.index;
-        }
         return obj;
       }
 
