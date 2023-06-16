@@ -65,7 +65,7 @@
           {
             "id": "",
             "text": "GEAR",
-            "response_text": "",
+            "response_text": "DOWN",
             "extension_text": "",
             "type": "checklist",
             "cas_message": "",
@@ -81,7 +81,7 @@
           {
             "id": "",
             "text": "LANDING LIGHTS",
-            "response_text": "",
+            "response_text": "ON",
             "extension_text": "",
             "type": "checklist",
             "cas_message": "",

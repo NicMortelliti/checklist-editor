@@ -48,7 +48,10 @@ export const TableDataRow = ({ row, level, isExpanded, onClick }) => {
     );
     const extension = extension_text ? extension_text.toString() : null;
 
-    const line = () => (response ? challenge + spacer + response : challenge);
+    const line = () =>
+      response
+        ? challenge.toUpperCase() + spacer + response.toUpperCase()
+        : challenge;
 
     return (
       <Box
