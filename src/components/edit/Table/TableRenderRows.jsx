@@ -7,16 +7,17 @@ export const TableRenderRows = ({
   expandedRows,
   setExpandedRows,
 }) => {
+  // Handle row click
   const handleRowClick = (id) => {
     setExpandedRows((prevExpandedRows) => {
       if (prevExpandedRows.includes(id)) {
         return prevExpandedRows.filter((rowId) => rowId !== id);
-      } else {
-        return [...prevExpandedRows, id];
       }
+      return [...prevExpandedRows, id];
     });
   };
 
+  // Render each row
   return data.map((eachRow, index) => {
     const isExpanded = expandedRows.includes(eachRow.id);
 

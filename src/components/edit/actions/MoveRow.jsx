@@ -2,7 +2,6 @@ import { IconButton } from '@chakra-ui/react';
 import { RxTriangleUp, RxTriangleDown } from 'react-icons/rx';
 
 export const MoveRow = ({ objData, index, lengthOfArray }) => {
-  console.log(lengthOfArray);
   return (
     <>
       <IconButton
