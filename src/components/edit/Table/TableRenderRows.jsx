@@ -17,12 +17,14 @@ export const TableRenderRows = ({
     });
   };
 
-  return data.map((eachRow) => {
+  return data.map((eachRow, index) => {
     const isExpanded = expandedRows.includes(eachRow.id);
 
     let renderedRows = (
       <TableDataRow
         key={eachRow.id}
+        index={index}
+        lengthOfArray={data.length}
         row={eachRow}
         level={level}
         isExpanded={isExpanded}

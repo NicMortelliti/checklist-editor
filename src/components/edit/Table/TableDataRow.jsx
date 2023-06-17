@@ -5,7 +5,14 @@ import { ActionComp } from '../actions/ActionComp';
 
 const maxLineLength = 30;
 
-export const TableDataRow = ({ row, level, isExpanded, onClick }) => {
+export const TableDataRow = ({
+  index,
+  lengthOfArray,
+  row,
+  level,
+  isExpanded,
+  onClick,
+}) => {
   const { typeColors } = useSelector((state) => state.ui);
   const indentStyles = {
     paddingLeft: `${level * 1}rem`, // Indentation based on level
@@ -80,7 +87,7 @@ export const TableDataRow = ({ row, level, isExpanded, onClick }) => {
   return (
     <Tr>
       <Td>
-        <ActionComp objData={row} />
+        <ActionComp objData={row} index={index} lengthOfArray={lengthOfArray} />
       </Td>
       <Td>
         <TextCell />
