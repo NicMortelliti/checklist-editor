@@ -1,6 +1,7 @@
 import { Box, Icon, Tag, Td, Tr } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 import { RxMinus, RxPlus } from 'react-icons/rx';
+import { VscBlank } from 'react-icons/vsc';
 import { ActionComp } from '../actions/ActionComp';
 
 const maxLineLength = 30;
@@ -42,7 +43,7 @@ export const TableDataRow = ({
       }
       return <Icon as={RxPlus} mr='8px' />;
     }
-    return null;
+    return <Icon as={VscBlank} mr='8px' />;
   };
 
   // The text cell has a little more complexity. Here, we're adding
