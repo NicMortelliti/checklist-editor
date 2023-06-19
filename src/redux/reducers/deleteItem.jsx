@@ -1,4 +1,4 @@
-import { searchById } from '../helpers/searchFunctions';
+import { searchById } from '../../helpers/searchFunctions';
 
 export const deleteItemFromData = (items, id) => {
   const newItemsArray = items.map((item) => ({ ...item }));
