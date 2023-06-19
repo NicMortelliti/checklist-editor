@@ -38,6 +38,32 @@ const updateImportedDataItemsRecursively = (items) =>
     return newItem;
   });
 
+// Add SubIndex Item
+const addSubIndexItem = (data, selectedIndex, payload) => {
+  const indexOfSelectedIndex = data.findIndex(
+    (each) => each.id === selectedIndex.id
+  );
+
+  const newItem = {
+    ...itemTemplate,
+    ...payload,
+    type: 'sub-index',
+    id: uuid(),
+  };
+
+  const updatedData = data.map((item, index) => {
+    if (index === indexOfSelectedIndex) {
+      return {
+        ...item,
+        children: [...item.children, newItem],
+      };
+    }
+    return item;
+  });
+
+  return updatedData;
+};
+
 // Delete an item from the data array
 const deleteItemFromData = (items, id) => {
   const newItemsArray = items.map((item) => ({ ...item }));
@@ -115,27 +141,11 @@ export const dataSlice = createSlice({
       ],
     }),
     addNewSubIndexItem: (state, action) => {
-      const indexOfSelectedIndex = state.data.findIndex(
-        (each) => each.id === state.selectedIndex.id
+      const updatedData = addSubIndexItem(
+        state.data,
+        state.selectedIndex,
+        action.payload
       );
-
-      const newItem = {
-        ...itemTemplate,
-        ...action.payload,
-        type: 'sub-index',
-        id: uuid(),
-      };
-
-      const updatedData = state.data.map((item, index) => {
-        if (index === indexOfSelectedIndex) {
-          return {
-            ...item,
-            children: [...item.children, newItem],
-          };
-        }
-        return item;
-      });
-
       return {
         ...state,
         data: updatedData,
