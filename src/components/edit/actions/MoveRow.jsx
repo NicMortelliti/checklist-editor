@@ -1,7 +1,18 @@
 import { IconButton } from '@chakra-ui/react';
 import { RxTriangleUp, RxTriangleDown } from 'react-icons/rx';
+import { useDispatch } from 'react-redux';
+import { setSelectedChecklistItem, moveItem } from '../../../redux/dataSlice';
 
 export const MoveRow = ({ objData, index, lengthOfArray }) => {
+  const dispatch = useDispatch();
+  const { id } = objData;
+
+  const handleClick = (e, direction) => {
+    console.log(direction);
+    dispatch(setSelectedChecklistItem(id));
+    dispatch(moveItem(direction));
+  };
+
   return (
     <>
       <IconButton
@@ -9,12 +20,14 @@ export const MoveRow = ({ objData, index, lengthOfArray }) => {
         size='xs'
         mr='5px'
         isDisabled={index === 0}
+        onClick={(e) => handleClick(e, 'up')}
       />
       <IconButton
         icon={<RxTriangleDown />}
         size='xs'
         mr='5px'
         isDisabled={index === lengthOfArray - 1}
+        onClick={(e) => handleClick(e, 'down')}
       />
     </>
   );

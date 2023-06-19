@@ -56,6 +56,33 @@ const deleteItemFromData = (items, id) => {
   return newItemsArray;
 };
 
+// Move row up or down
+const moveItemInDataArray = (items, id, direction) => {
+  const newItemsArray = items.map((item) => {
+    if (item.id === id) {
+      const { children } = item;
+      let currentIndex = children.findIndex((child) => child.id === id);
+
+      if (direction === 'up' && currentIndex > 0) {
+        const itemToMove = children[currentIndex];
+        children.splice(currentIndex, 1);
+        children.splice(currentIndex - 1, 0, itemToMove);
+      } else if (direction === 'down' && currentIndex < children.length - 1) {
+        const itemToMove = children[currentIndex];
+        children.splice(currentIndex, 1);
+        children.splice(currentIndex + 1, 0, itemToMove);
+      }
+    }
+
+    return {
+      ...item,
+      children: moveItemInDataArray(item.children, id, direction),
+    };
+  });
+
+  return newItemsArray;
+};
+
 export const dataSlice = createSlice({
   name: 'data',
   initialState,
@@ -126,6 +153,14 @@ export const dataSlice = createSlice({
         data: newArray,
       };
     },
+    moveItem: (state, action) => {
+      const { data, selectedChecklistItem: id } = state;
+      const newArray = moveItemInDataArray(data, id, action.payload);
+      return {
+        ...state,
+        data: newArray,
+      };
+    },
   },
 });
 
@@ -139,5 +174,6 @@ export const {
   addNewSubIndexItem,
   setSelectedChecklistItem,
   deleteItem,
+  moveItem,
 } = dataSlice.actions;
 export default dataSlice.reducer;
