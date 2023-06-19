@@ -39,10 +39,8 @@ const updateImportedDataItemsRecursively = (items) =>
   });
 
 // Add SubIndex Item
-const addSubIndexItem = (data, selectedIndex, payload) => {
-  const indexOfSelectedIndex = data.findIndex(
-    (each) => each.id === selectedIndex.id
-  );
+const addSubIndexItem = (data, id, payload) => {
+  const indexOfSelectedIndex = data.findIndex((each) => each.id === id);
 
   const newItem = {
     ...itemTemplate,
@@ -141,14 +139,12 @@ export const dataSlice = createSlice({
       ],
     }),
     addNewSubIndexItem: (state, action) => {
-      const updatedData = addSubIndexItem(
-        state.data,
-        state.selectedIndex,
-        action.payload
-      );
+      const { data, selectedIndex: id } = state;
+      const { payload } = action;
+      const newArray = addSubIndexItem(data, id, payload);
       return {
         ...state,
-        data: updatedData,
+        data: newArray,
       };
     },
     setSelectedChecklistItem: (state, action) => ({
@@ -165,7 +161,8 @@ export const dataSlice = createSlice({
     },
     moveItem: (state, action) => {
       const { data, selectedChecklistItem: id } = state;
-      const newArray = moveItemInDataArray(data, id, action.payload);
+      const { payload } = action;
+      const newArray = moveItemInDataArray(data, id, payload);
       return {
         ...state,
         data: newArray,
