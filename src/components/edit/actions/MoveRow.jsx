@@ -7,8 +7,7 @@ export const MoveRow = ({ objData, index, lengthOfArray }) => {
   const dispatch = useDispatch();
   const { id } = objData;
 
-  const handleClick = (e, direction) => {
-    console.log(direction);
+  const handleClick = (direction) => {
     dispatch(setSelectedChecklistItem(id));
     dispatch(moveItem(direction));
   };
@@ -20,14 +19,14 @@ export const MoveRow = ({ objData, index, lengthOfArray }) => {
         size='xs'
         mr='5px'
         isDisabled={index === 0}
-        onClick={(e) => handleClick(e, 'up')}
+        onClick={() => handleClick('up')}
       />
       <IconButton
         icon={<RxTriangleDown />}
         size='xs'
         mr='5px'
         isDisabled={index === lengthOfArray - 1}
-        onClick={(e) => handleClick(e, 'down')}
+        onClick={() => handleClick('down')}
       />
     </>
   );
