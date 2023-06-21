@@ -29,6 +29,20 @@ const initialState = {
   selectedSubIndex: '',
   selectedChecklistItem: '',
   data: [],
+  cas: [
+    {
+      id: 1,
+      text: 'L AFT DOOR OPEN',
+      type: 'warning',
+    },
+    {
+      id: 2,
+      text: 'R ENG FIRE',
+      type: 'warning',
+    },
+    { id: 3, text: 'COFFEE COLD', type: 'warning' },
+    { id: 4, text: 'APU OFF', type: 'info' },
+  ],
 };
 
 export const dataSlice = createSlice({
