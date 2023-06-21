@@ -17,6 +17,7 @@ const initialState = {
     { title: 'Synoptic Link' },
   ],
   typeColors: {
+    '-': 'white',
     index: 'teal',
     'sub-index': 'cyan',
     checklist: 'messenger',

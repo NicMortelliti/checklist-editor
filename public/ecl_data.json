@@ -1,6 +1,22 @@
 [
   {
     "id": "",
+    "text": "Summary",
+    "response_text": "",
+    "extension_text": "",
+    "type": "index",
+    "cas_message": "",
+    "latchable": "",
+    "auto_sensed_bool": "",
+    "invert_sensed_bool": "",
+    "auto_reset_bool": "",
+    "timer_sec": "",
+    "sensed_timer_bool": "",
+    "synoptic_link": "",
+    "children": []
+  },
+  {
+    "id": "",
     "text": "Normal",
     "response_text": "",
     "extension_text": "",

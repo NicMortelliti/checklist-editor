@@ -32,16 +32,67 @@ const initialState = {
   cas: [
     {
       id: 1,
-      text: 'L AFT DOOR OPEN',
-      type: 'warning',
+      text: '-',
+      type: '',
     },
     {
       id: 2,
       text: 'R ENG FIRE',
       type: 'warning',
     },
-    { id: 3, text: 'COFFEE COLD', type: 'warning' },
-    { id: 4, text: 'APU OFF', type: 'info' },
+    { id: 3, text: 'COFFEE COLD', type: 'caution' },
+    {
+      id: 4,
+      text: 'CKPT DOOR OPEN',
+      type: 'advisory',
+    },
+    { id: 5, text: 'APU ON', type: 'info' },
+  ],
+  synoptics: [
+    {
+      id: 1,
+      name: '-',
+    },
+    {
+      id: 2,
+      name: 'Status',
+    },
+    {
+      id: 3,
+      name: 'Air',
+    },
+    {
+      id: 4,
+      name: 'Door',
+    },
+    {
+      id: 5,
+      name: 'Elec',
+    },
+    {
+      id: 6,
+      name: 'Flt Ctrl',
+    },
+    {
+      id: 7,
+      name: 'Fuel',
+    },
+    {
+      id: 8,
+      name: 'Hyd',
+    },
+    {
+      id: 9,
+      name: 'Avionic',
+    },
+    {
+      id: 10,
+      name: 'Info',
+    },
+    {
+      id: 11,
+      name: 'CB',
+    },
   ],
 };
 
