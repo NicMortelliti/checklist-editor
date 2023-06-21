@@ -2,7 +2,6 @@ import {
   Button,
   Container,
   Divider,
-  Highlight,
   HStack,
   Flex,
   Modal,
@@ -15,9 +14,9 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setModal } from '../../../redux/uiSlice';
-import { deleteItem } from '../../../redux/dataSlice';
-import { recursiveObjSearch } from '../../../helpers/searchFunctions';
+import { setModal } from '../../redux/uiSlice';
+import { deleteItem } from '../../redux/dataSlice';
+import { recursiveObjSearch } from '../../helpers/searchFunctions';
 
 export const DeleteModal = ({ overlay }) => {
   const dispatch = useDispatch();
