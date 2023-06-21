@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { DeleteModal } from './DeleteModal';
+import { EditModal } from './EditModal';
 import { ModalOverlay } from '@chakra-ui/react';
 
 export const ModalConductor = () => {
@@ -15,6 +16,8 @@ export const ModalConductor = () => {
   switch (modal) {
     case 'delete':
       return <DeleteModal overlay={<Overlay />} />;
+    case 'edit':
+      return <EditModal overlay={<Overlay />} />;
     default:
       break;
   }

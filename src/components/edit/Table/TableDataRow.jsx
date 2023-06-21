@@ -1,8 +1,8 @@
-import { Box, Icon, Tag, Td, Tr } from '@chakra-ui/react';
-import { useSelector } from 'react-redux';
+import { Box, Icon, Td, Tr } from '@chakra-ui/react';
 import { RxMinus, RxPlus } from 'react-icons/rx';
 import { VscBlank } from 'react-icons/vsc';
 import { ActionComp } from '../actions/ActionComp';
+import { TypeTag } from '../../shared/TypeTag';
 
 const maxLineLength = 30;
 
@@ -14,7 +14,6 @@ export const TableDataRow = ({
   isExpanded,
   onClick,
 }) => {
-  const { typeColors } = useSelector((state) => state.ui);
   const indentStyles = {
     paddingLeft: `${level * 1}rem`, // Indentation based on level
   };
@@ -72,19 +71,6 @@ export const TableDataRow = ({
     );
   };
 
-  const TypeTag = () => {
-    // Capitalize first character in string
-    const capitalizedType = type.charAt(0).toUpperCase() + type.slice(1);
-
-    return (
-      <Box style={indentStyles}>
-        <Tag size='sm' borderRadius='full' colorScheme={typeColors[type]}>
-          {capitalizedType}
-        </Tag>
-      </Box>
-    );
-  };
-
   return (
     <Tr>
       <Td>
@@ -94,7 +80,7 @@ export const TableDataRow = ({
         <TextCell />
       </Td>
       <Td>
-        <TypeTag />
+        <TypeTag type={type} />
       </Td>
       <Td>{cas_message}</Td>
       <Td>{latchable}</Td>
