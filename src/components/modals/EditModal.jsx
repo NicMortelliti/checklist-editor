@@ -18,6 +18,7 @@ import {
 } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setModal } from '../../redux/uiSlice';
+import { editItem } from '../../redux/dataSlice';
 import { recursiveObjSearch } from '../../helpers/searchFunctions';
 
 export const EditModal = ({ overlay }) => {
@@ -55,9 +56,8 @@ export const EditModal = ({ overlay }) => {
   const handleCancel = () => dispatch(setModal(''));
   const submitForm = (e) => {
     e.preventDefault();
-    console.log(formData);
-    // dispatch(setModal(''));
-    // dispatch(deleteItem(selectedChecklistItem));
+    dispatch(setModal(''));
+    dispatch(editItem(formData));
   };
 
   const textChallenge = () => {

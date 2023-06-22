@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuid } from 'uuid';
 import { moveItemInDataArray } from './reducers/moveItem';
+import { editItemInDataArray } from './reducers/editItem';
 import { deleteItemFromData } from './reducers/deleteItem';
 import { addUuid } from './reducers/addUuid';
 import { addSubIndex } from './reducers/addSubIndex';
@@ -157,6 +158,15 @@ export const dataSlice = createSlice({
         data: newArray,
       };
     },
+    editItem: (state, action) => {
+      const { data, selectedChecklistItem: id } = state;
+      const { payload } = action;
+      const newArray = editItemInDataArray(data, id, payload);
+      return {
+        ...state,
+        data: newArray,
+      };
+    },
   },
 });
 
@@ -171,5 +181,6 @@ export const {
   setSelectedChecklistItem,
   deleteItem,
   moveItem,
+  editItem,
 } = dataSlice.actions;
 export default dataSlice.reducer;
