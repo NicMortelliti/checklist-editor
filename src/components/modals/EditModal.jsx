@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Button,
   Checkbox,
@@ -18,24 +18,39 @@ import {
 } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setModal } from '../../redux/uiSlice';
+import { recursiveObjSearch } from '../../helpers/searchFunctions';
 
 export const EditModal = ({ overlay }) => {
   const initialForm = {
     text: '',
+    response_text: '',
+    extension_text: '',
     type: '-',
-    cas: '-',
+    cas_message: '-',
     latchable: 'False',
-    autoSensed: 'False',
-    invertAutoSensed: false,
-    autoReset: 'False',
-    timer: '',
-    sensedTimer: 'False',
-    synopticLink: '',
+    auto_sensed_bool: 'False',
+    invert_sensed_bool: false,
+    auto_reset_bool: 'False',
+    timer_sec: '',
+    sensed_timer_bool: 'False',
+    synoptic_link: '',
   };
-  const [formData, setFormData] = useState(initialForm);
+
   const dispatch = useDispatch();
   const { modal, typeColors } = useSelector((state) => state.ui);
-  const { cas, synoptics } = useSelector((state) => state.data);
+  const { cas, data, selectedChecklistItem, synoptics } = useSelector(
+    (state) => state.data
+  );
+
+  const [formData, setFormData] = useState(initialForm);
+
+  // Get data from selected row and populate formData
+  useEffect(() => {
+    const rowData = recursiveObjSearch(data, selectedChecklistItem);
+    if (rowData) {
+      setFormData({ ...formData, ...rowData });
+    }
+  }, []);
 
   const handleCancel = () => dispatch(setModal(''));
   const submitForm = (e) => {
@@ -84,9 +99,9 @@ export const EditModal = ({ overlay }) => {
     <FormControl>
       <FormLabel>CAS Message</FormLabel>
       <Select
-        value={formData.autoReset}
+        value={formData.auto_reset_bool}
         onChange={(e) =>
-          setFormData({ ...formData, autoReset: e.target.value })
+          setFormData({ ...formData, auto_reset_bool: e.target.value })
         }>
         {cas.map((msg) => {
           const { id, text, type } = msg;
@@ -132,9 +147,9 @@ export const EditModal = ({ overlay }) => {
           <Select
             w='40%'
             mr='20px'
-            value={formData.autoSensed}
+            value={formData.auto_sensed_bool}
             onChange={(e) =>
-              setFormData({ ...formData, autoSensed: e.target.value })
+              setFormData({ ...formData, auto_sensed_bool: e.target.value })
             }>
             {optionsArray.map((option) => (
               <option key={option} value={option}>
@@ -143,9 +158,10 @@ export const EditModal = ({ overlay }) => {
             ))}
           </Select>
           <Checkbox
-            isDisabled={formData.autoSensed === 'True' ? false : true}
+            isDisabled={formData.auto_sensed_bool === 'True' ? false : true}
+            value={formData.invert_sensed_bool}
             onChange={(e) =>
-              setFormData({ ...formData, invertAutoSensed: e.target.value })
+              setFormData({ ...formData, invert_sensed_bool: e.target.value })
             }>
             Invert Auto Sensed?
           </Checkbox>
@@ -160,9 +176,9 @@ export const EditModal = ({ overlay }) => {
       <FormControl>
         <FormLabel>Auto Reset</FormLabel>
         <Select
-          value={formData.autoReset}
+          value={formData.auto_reset_bool}
           onChange={(e) =>
-            setFormData({ ...formData, autoReset: e.target.value })
+            setFormData({ ...formData, auto_reset_bool: e.target.value })
           }>
           {optionsArray.map((option) => (
             <option key={option} value={option}>
@@ -182,15 +198,15 @@ export const EditModal = ({ overlay }) => {
           <Input
             w='25%'
             name='timer'
-            value={formData.timer}
+            value={formData.timer_sec}
             onChange={(e) =>
-              setFormData({ ...formData, timer: e.target.value })
+              setFormData({ ...formData, timer_sec: e.target.value })
             }
           />
           <InputRightAddon w='15%' mr='20px'>
             sec
           </InputRightAddon>
-          <Checkbox isDisabled={formData.timer ? false : true}>
+          <Checkbox isDisabled={formData.timer_sec ? false : true}>
             Sensed Timer?
           </Checkbox>
         </InputGroup>
@@ -203,17 +219,14 @@ export const EditModal = ({ overlay }) => {
       <FormControl>
         <FormLabel>Synoptic Link</FormLabel>
         <Select
-          value={formData.autoReset}
+          value={formData.auto_reset_bool}
           onChange={(e) =>
-            setFormData({ ...formData, autoReset: e.target.value })
+            setFormData({ ...formData, synoptic_link: e.target.value })
           }>
           {synoptics.map((synoptic) => {
             const { id, name } = synoptic;
             return (
-              <option
-                key={id}
-                value={name}
-                label={formData.synopticLink}>
+              <option key={id} value={name} label={formData.synoptic_link}>
                 {name}
               </option>
             );

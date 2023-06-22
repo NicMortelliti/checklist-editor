@@ -1,3 +1,4 @@
+// Return the object that has a matching ID
 export const recursiveObjSearch = (dataSet, id) => {
   const recursiveSearch = (dataArray, id) => {
     for (const obj of dataArray) {
@@ -21,6 +22,7 @@ export const recursiveObjSearch = (dataSet, id) => {
   return result;
 };
 
+// Return the array address to the object with a matching ID
 export const searchById = (dataArray, id) => {
   // Recursive function to search for id in dataArray
   function search(dataArray, id, indexPath = []) {
