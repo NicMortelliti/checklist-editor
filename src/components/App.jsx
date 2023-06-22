@@ -8,8 +8,11 @@ export const App = () => {
   const { onBoarding } = useSelector((state) => state.ui);
 
   const RenderInterface = useMemo(() => {
-    if (onBoarding) return <ProjectSelect />;
-    return <EditingInterface />;
+    if (onBoarding) {
+      return <ProjectSelect />;
+    } else {
+      return <EditingInterface />;
+    }
   }, [onBoarding]);
 
   return (

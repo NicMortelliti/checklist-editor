@@ -7,10 +7,7 @@ export const ModalConductor = () => {
   const { modal } = useSelector((state) => state.ui);
 
   const Overlay = () => (
-    <ModalOverlay
-      bg='blackAlpha.300'
-      backdropFilter='blur(10px) hue-rotate(90deg)'
-    />
+    <ModalOverlay bg='blackAlpha.300' backdropFilter='blur(10px)' />
   );
 
   switch (modal) {

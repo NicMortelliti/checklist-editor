@@ -7,6 +7,7 @@ import {
   importFromJsonFailure,
 } from '../../redux/dataSlice';
 import { Button } from '@chakra-ui/react';
+import { LuFolderOpen } from 'react-icons/lu';
 
 export const ImportBtn = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,9 @@ export const ImportBtn = () => {
 
   return (
     <>
-      <Button onClick={handleButtonClick}>Import</Button>
+      <Button leftIcon={<LuFolderOpen />} onClick={handleButtonClick}>
+        Open Existing Checklist
+      </Button>
       <input
         type='file'
         ref={fileInputRef}

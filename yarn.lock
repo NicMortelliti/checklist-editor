@@ -1173,6 +1173,16 @@
   resolved "https://registry.npmjs.org/@eslint/js/-/js-8.42.0.tgz"
   integrity sha512-6SWlXpWU5AvId8Ac7zjzmIOqMOba/JWY8XZ4A7q7Gn1Vlfg/SFFIlrtHXt9nPn4op9ZPAkl91Jao+QQv3r/ukw==
 
+"@fontsource-variable/jetbrains-mono@^5.0.4":
+  version "5.0.4"
+  resolved "https://registry.npmjs.org/@fontsource-variable/jetbrains-mono/-/jetbrains-mono-5.0.4.tgz"
+  integrity sha512-51HqZ089lhPxrmrAMOuyl0EMfWazelFrcEs29fSUwy5DBuUp3uDGY/uiAEyyiSMX1dJIVTS9uq7kSytkq1tW8Q==
+
+"@fontsource-variable/space-grotesk@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.npmjs.org/@fontsource-variable/space-grotesk/-/space-grotesk-5.0.3.tgz"
+  integrity sha512-hs3U0Zy7+t93swf50/LMkredodBmBJUzkl9UWymeJRZqS8SfbuMUOrcCsEbFp94QPNh8lqGrg5xRIhyfD6rNKw==
+
 "@humanwhocodes/config-array@^0.11.10":
   version "0.11.10"
   resolved "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.11.10.tgz"
