@@ -22,6 +22,7 @@ export const Button = defineStyleConfig({
     },
     md: {
       fontSize: 'sm',
+      height: 14,
       px: 5, // <-- these values are tokens from the design system
       py: 4, // <-- these values are tokens from the design system
     },

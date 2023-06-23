@@ -7,7 +7,7 @@ export const theme = extendTheme({
   },
   fonts: {
     heading: `'Space Grotesk Variable', sans-serif`,
-    body: `'JetBrains Mono Variable', sans-serif`,
+    body: `'JetBrains Mono Variable', mono`,
   },
   styles: {
     global: {
