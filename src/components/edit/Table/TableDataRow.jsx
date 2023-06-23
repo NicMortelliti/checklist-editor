@@ -50,23 +50,41 @@ export const TableDataRow = ({
   const TextCell = () => {
     const challenge = text.toString();
     const response = response_text.toString();
-    const spacer = '.'.repeat(
-      maxLineLength - challenge.length - response.length
-    );
+    const challengeArray = challenge.split('\n');
     const extension = extension_text ? extension_text.toString() : null;
 
-    const line = () =>
-      response
-        ? challenge.toUpperCase() + spacer + response.toUpperCase()
-        : challenge;
+    const formattedLine = (line) => {
+      const numberOfEllipses = maxLineLength - line.length - response.length;
+      return <p>{line + '.'.repeat(numberOfEllipses) + response}</p>;
+    };
+
+    const RenderItem = () => {
+      return challengeArray.map((line, index) => {
+        if (index === 0) {
+          return (
+            <p key={line + index.toString}>
+              <RenderIcon />
+              {line}
+            </p>
+          );
+        }
+        if (index === challengeArray.length - 1 && response)
+          return formattedLine(line);
+        return (
+          <p key={line + index.toString}>
+            <Icon as={VscBlank} mr='8px' />
+            {line}
+          </p>
+        );
+      });
+    };
 
     return (
       <Box
         onClick={onClick}
         _hover={{ bg: 'gray.100', cursor: 'pointer' }}
         style={indentStyles}>
-        <RenderIcon />
-        {line()}
+        <RenderItem />
       </Box>
     );
   };

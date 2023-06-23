@@ -7,10 +7,9 @@ export const TableHeaders = () => {
   return (
     <Thead>
       <Tr>
-        {columns.map((eachColumn) => {
-          const { title } = eachColumn;
-          return <Th key={title}>{title}</Th>;
-        })}
+        {columns.map((eachColumn) => (
+          <Th key={eachColumn.title}>{eachColumn.title}</Th>
+        ))}
       </Tr>
     </Thead>
   );
