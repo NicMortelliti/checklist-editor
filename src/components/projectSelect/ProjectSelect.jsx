@@ -11,7 +11,7 @@ export const ProjectSelect = () => {
           <Text fontSize='4xl' fontFamily={theme.fonts.heading}>
             Welcome to
           </Text>
-          <Text fontSize='4xl' color='#9F59F8'>
+          <Text fontSize='4xl' variant='accent'>
             CheckMan
           </Text>
         </HStack>

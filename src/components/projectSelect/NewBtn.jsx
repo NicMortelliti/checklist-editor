@@ -8,6 +8,7 @@ export const NewBtn = () => {
   return (
     <Button
       leftIcon={<LuPlus />}
+      aria-label='New Checklist'
       onClick={() => dispatch(setOnBoarding(false))}>
       Create New Checklist
     </Button>

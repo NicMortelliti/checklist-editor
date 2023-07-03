@@ -1,6 +1,6 @@
 import { defineStyleConfig } from '@chakra-ui/react';
 
-export const IconButton = defineStyleConfig({
+export const iconButtonStyle  = defineStyleConfig({
   baseStyle: {
     fontSize: 'lg'
   },

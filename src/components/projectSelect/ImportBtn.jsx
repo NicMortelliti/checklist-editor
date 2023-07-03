@@ -38,7 +38,10 @@ export const ImportBtn = () => {
 
   return (
     <>
-      <Button leftIcon={<LuFolderOpen />} onClick={handleButtonClick}>
+      <Button
+        leftIcon={<LuFolderOpen />}
+        aria-label='Open Checklist'
+        onClick={handleButtonClick}>
         Open Existing Checklist
       </Button>
       <input
