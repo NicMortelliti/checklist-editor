@@ -53,29 +53,35 @@ export const TableDataRow = ({
     const challengeArray = challenge.split('\n');
     const extension = extension_text ? extension_text.toString() : null;
 
-    const formattedLine = (line) => {
+    const FormattedLine = (line) => {
       const numberOfEllipses = maxLineLength - line.length - response.length;
-      return <p>{line + '.'.repeat(numberOfEllipses) + response}</p>;
+      return line + '.'.repeat(numberOfEllipses) + response;
     };
 
     const RenderItem = () => {
+      const FirstLine = (line) => (
+        <>
+          <RenderIcon />
+          {line}
+        </>
+      );
+
+      const OtherLine = (line) => (
+        <>
+          <Icon as={VscBlank} mr='8px' />
+          {line}
+        </>
+      );
       return challengeArray.map((line, index) => {
-        if (index === 0) {
-          return (
-            <p key={line + index.toString}>
-              <RenderIcon />
-              {line}
-            </p>
-          );
-        }
-        if (index === challengeArray.length - 1 && response)
-          return formattedLine(line);
-        return (
-          <p key={line + index.toString}>
-            <Icon as={VscBlank} mr='8px' />
-            {line}
-          </p>
-        );
+        <p key={line + index.toString}>
+          {index === 0 ? (
+            <FirstLine line={line} />
+          ) : index === challengeArray.length - 1 && response ? (
+            <FormattedLine />
+          ) : (
+            <OtherLine line={line} />
+          )}
+        </p>;
       });
     };
 

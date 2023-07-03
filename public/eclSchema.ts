@@ -1,6 +1,7 @@
 // Template interface for
 interface baseItem {
   id: string;
+  type: string;
   mainText: string;
 }
 
