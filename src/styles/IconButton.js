@@ -1,10 +1,21 @@
 import { defineStyleConfig } from '@chakra-ui/react';
 
-export const iconButtonStyle  = defineStyleConfig({
+export const iconButtonStyle = defineStyleConfig({
   baseStyle: {
-    fontSize: 'lg'
+    borderRadius: '50%',
+    fontSize: 'lg',
+    bg: 'red.600',
+    color: 'red.800',
   },
-  sizes: {},
-  variants: {},
-  defaultProps: {},
+  colorScheme: {
+    red: {
+      bg: 'red.400',
+      _hover: {
+        transform: 'reset',
+      },
+    },
+  },
+  defaultProps: {
+    colorScheme: 'red',
+  },
 });

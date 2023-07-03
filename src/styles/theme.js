@@ -1,6 +1,6 @@
 import { extendTheme } from '@chakra-ui/react';
 import { colors } from './colors';
-import { buttonStyle, iconButtonStyle, textStyle } from '.';
+import { buttonStyle, textStyle } from '.';
 import { global } from './global';
 import { fonts } from './fonts';
 
@@ -10,7 +10,6 @@ export const theme = extendTheme({
   fonts: fonts,
   components: {
     Button: buttonStyle,
-    IconButton: iconButtonStyle,
     Text: textStyle,
   },
 });

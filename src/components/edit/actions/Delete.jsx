@@ -17,7 +17,7 @@ export const Delete = ({ objData }) => {
       <IconButton
         icon={<RxCross1 />}
         size='xs'
-        colorScheme='red'
+        variant='red'
         onClick={(e) => handleClick(e)}
       />
     </>

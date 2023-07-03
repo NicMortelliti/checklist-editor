@@ -18,6 +18,7 @@ export const MoveRow = ({ objData, index, lengthOfArray }) => {
         icon={<RxTriangleUp />}
         size='xs'
         mr='5px'
+        variant='gray'
         isDisabled={index === 0}
         onClick={() => handleClick('up')}
       />
@@ -25,6 +26,7 @@ export const MoveRow = ({ objData, index, lengthOfArray }) => {
         icon={<RxTriangleDown />}
         size='xs'
         mr='5px'
+        variant='gray'
         isDisabled={index === lengthOfArray - 1}
         onClick={() => handleClick('down')}
       />

@@ -18,7 +18,7 @@ export const EditRow = ({ objData }) => {
         icon={<RxPencil1 />}
         size='xs'
         mr='5px'
-        colorScheme='blue'
+        variant='blue'
         onClick={(e) => handleClick(e)}
       />
     </>
