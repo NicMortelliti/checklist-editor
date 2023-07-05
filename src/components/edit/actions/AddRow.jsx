@@ -5,7 +5,7 @@ const label = 'Add new row';
 
 export const AddRow = ({ objData }) => {
   return (
-    <Tooltip hasArrow label={label} aria-label={label}>
+    <Tooltip hasArrow closeOnClick label={label} aria-label={label}>
       <IconButton
         icon={<MdFormatListBulletedAdd />}
         size='xs'

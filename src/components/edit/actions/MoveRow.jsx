@@ -19,6 +19,7 @@ export const MoveRow = ({ objData, index, lengthOfArray }) => {
     <>
       <Tooltip
         hasArrow
+        closeOnClick
         label={labelUp}
         aria-label={labelUp}
         isDisabled={index === 0}>
@@ -33,6 +34,7 @@ export const MoveRow = ({ objData, index, lengthOfArray }) => {
       </Tooltip>
       <Tooltip
         hasArrow
+        closeOnClick
         label={labelDn}
         aria-label={labelDn}
         isDisabled={index === lengthOfArray - 1}>

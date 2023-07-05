@@ -15,7 +15,7 @@ export const Delete = ({ objData }) => {
 
   const dispatch = useDispatch();
   return (
-    <Tooltip hasArrow label={label} aria-label={label}>
+    <Tooltip hasArrow closeOnClick label={label} aria-label={label}>
       <IconButton
         icon={<RxCross1 />}
         size='xs'
