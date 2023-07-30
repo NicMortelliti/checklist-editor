@@ -18,20 +18,20 @@ export const TableDataRow = ({
     paddingLeft: `${level * 1}rem`, // Indentation based on level
   };
 
+  // Destructure available props
   const {
     text,
-    response_text,
-    extension_text,
     type,
-    cas_message,
-    latchable,
-    auto_sensed_bool,
-    invert_sensed_bool,
-    auto_reset_bool,
-    timer_sec,
-    sensed_timer_bool,
-    synoptic_link,
     children,
+    responseText,
+    extensionText,
+    casMessage,
+    autoSensed,
+    invertSensed,
+    autoReset,
+    timerSec,
+    sensedTimer,
+    synopticLink,
   } = row;
 
   // Render an expand/collapse icon if the row has children.
@@ -48,10 +48,8 @@ export const TableDataRow = ({
   // The text cell has a little more complexity. Here, we're adding
   // the ability to click the title cell to toggle child visibility.
   const TextCell = () => {
-    const challenge = text.toString();
-    const response = response_text.toString();
-    const challengeArray = challenge.split('\n');
-    const extension = extension_text ? extension_text.toString() : null;
+    const textArray: string[] = text.split('\n');
+    const extensionArray: string[] = extensionText.split('\n');
 
     const FormattedLine = (line) => {
       const numberOfEllipses = maxLineLength - line.length - response.length;
@@ -59,24 +57,24 @@ export const TableDataRow = ({
     };
 
     const RenderItem = () => {
-      const FirstLine = (line) => (
+      const FirstLine = (line: string) => (
         <>
           <RenderIcon />
           {line}
         </>
       );
 
-      const OtherLine = (line) => (
+      const OtherLine = (line: string) => (
         <>
           <Icon as={VscBlank} mr='8px' />
           {line}
         </>
       );
-      return challengeArray.map((line, index) => {
+      return textArray.map((line, index) => {
         <p key={line + index.toString}>
           {index === 0 ? (
             <FirstLine line={line} />
-          ) : index === challengeArray.length - 1 && response ? (
+          ) : index === textArray.length - 1 && responseText ? (
             <FormattedLine />
           ) : (
             <OtherLine line={line} />
@@ -106,15 +104,13 @@ export const TableDataRow = ({
       <Td>
         <TypeTag type={type} />
       </Td>
-      <Td>{cas_message}</Td>
-      <Td>{latchable}</Td>
-      <Td>{auto_sensed_bool}</Td>
-      <Td>{invert_sensed_bool}</Td>
-      <Td>{auto_reset_bool}</Td>
-      <Td>{timer_sec}</Td>
-      <Td>{sensed_timer_bool}</Td>
-      <Td>{sensed_timer_bool}</Td>
-      <Td>{synoptic_link}</Td>
+      <Td>{casMessage}</Td>
+      <Td>{autoSensed}</Td>
+      <Td>{invertSensed}</Td>
+      <Td>{autoReset}</Td>
+      <Td>{timerSec}</Td>
+      <Td>{sensedTimer}</Td>
+      <Td>{synopticLink}</Td>
     </Tr>
   );
 };

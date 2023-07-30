@@ -3,7 +3,17 @@ import { MoveRow } from './MoveRow';
 import { AddRow } from './AddRow';
 import { EditRow } from './EditRow';
 
-export const ActionComp = ({ objData, index, lengthOfArray }) => {
+interface IActionComp {
+  objData: {};
+  index: number;
+  lengthOfArray: number;
+}
+
+export const ActionComp: React.FC<IActionComp> = ({
+  objData,
+  index,
+  lengthOfArray,
+}) => {
   return (
     <>
       <MoveRow objData={objData} index={index} lengthOfArray={lengthOfArray} />

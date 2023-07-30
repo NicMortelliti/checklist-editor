@@ -6,6 +6,22 @@ import { deleteItemFromData } from './reducers/deleteItem';
 import { addUuid } from './reducers/addUuid';
 import { addSubIndex } from './reducers/addSubIndex';
 
+interface DataInterface {
+  index: string;
+  text: string;
+  type: string;
+  children?: string[];
+  responseText?: string;
+  extensionText?: string;
+  casMessage?: string;
+  autoSensed?: boolean;
+  invertSensed?: boolean;
+  autoReset?: boolean;
+  timerSec?: number;
+  sensedTimer?: boolean;
+  synopticLink?: string;
+}
+
 const itemTemplate = {
   id: '',
   text: '',
@@ -97,7 +113,7 @@ const initialState = {
   ],
 };
 
-export const dataSlice = createSlice({
+export const dataSlice: DataInterface = createSlice({
   name: 'data',
   initialState,
   reducers: {
@@ -106,7 +122,7 @@ export const dataSlice = createSlice({
       state.error = null;
     },
     importFromJsonSuccess(state, action) {
-      state.data = addUuid(action.payload);
+      state.data = action.payload;
       state.loading = false;
     },
     importFromJsonFailure(state, action) {
