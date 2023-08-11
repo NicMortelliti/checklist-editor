@@ -57,20 +57,20 @@ export const TableDataRow = ({
     };
 
     const RenderItem = () => {
-      const FirstLine = (line: string) => (
+      const FirstLine: React.FC<{ line: string }> = ({ line }) => (
         <>
           <RenderIcon />
           {line}
         </>
       );
 
-      const OtherLine = (line: string) => (
+      const OtherLine: React.FC<{ line: string }> = ({ line }) => (
         <>
           <Icon as={VscBlank} mr='8px' />
           {line}
         </>
       );
-      return textArray.map((line, index) => {
+      return textArray.map((line, index) => (
         <p key={line + index.toString}>
           {index === 0 ? (
             <FirstLine line={line} />
@@ -79,8 +79,8 @@ export const TableDataRow = ({
           ) : (
             <OtherLine line={line} />
           )}
-        </p>;
-      });
+        </p>
+      ));
     };
 
     return (
