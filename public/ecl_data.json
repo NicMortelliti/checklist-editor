@@ -9,7 +9,7 @@
     "id": "a1b0b0a0-1f38-4df0-920d-3460fd760c82",
     "text": "Normal",
     "type": "index",
-    "children": []
+    "children": ["ab77c31b-3bef-4acc-af91-4544eee5bdab"]
   },
   {
     "id": "31c2add7-ce0a-4082-8b97-828c80ae9c3f",
@@ -21,6 +21,12 @@
     "id": "2cd2fd5a-a286-49de-b496-4319f0ea305d",
     "text": "Procedure",
     "type": "index",
+    "children": []
+  },
+  {
+    "id": "ab77c31b-3bef-4acc-af91-4544eee5bdab",
+    "text": "Taxi",
+    "type": "checklist",
     "children": []
   }
 ]
