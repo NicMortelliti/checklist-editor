@@ -49,7 +49,7 @@ export const TableDataRow = ({
   // the ability to click the title cell to toggle child visibility.
   const TextCell = () => {
     const textArray: string[] = text.split('\n');
-    const extensionArray: string[] = extensionText.split('\n');
+    const extensionArray: string[] = extensionText?.split('\n') || [];
 
     const FormattedLine = (line) => {
       const numberOfEllipses = maxLineLength - line.length - response.length;
