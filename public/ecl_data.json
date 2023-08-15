@@ -28,5 +28,11 @@
     "text": "Taxi",
     "type": "checklist",
     "children": []
+  },
+  {
+    "id": "",
+    "text": "Takeoff",
+    "type": "checklist",
+    "children": []
   }
 ]
