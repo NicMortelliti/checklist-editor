@@ -2,9 +2,9 @@ import React from 'react';
 import { Box, Icon, Td, Tr } from '@chakra-ui/react';
 import { RxMinus, RxPlus } from 'react-icons/rx';
 import { VscBlank } from 'react-icons/vsc';
-import { ActionComp } from '../actions/ActionComp';
-import { TypeTag } from '../../shared/TypeTag';
-import { IRow } from '../../../schema';
+import { ActionComp } from '../edit/actions/ActionComp';
+import { TypeTag } from '../shared/TypeTag';
+import { IRow } from '../../schema';
 
 const maxLineLength = 30;
 
