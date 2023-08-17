@@ -1,45 +1,35 @@
+import React from 'react';
 import { Box, Icon, Td, Tr } from '@chakra-ui/react';
 import { RxMinus, RxPlus } from 'react-icons/rx';
 import { VscBlank } from 'react-icons/vsc';
 import { ActionComp } from '../actions/ActionComp';
 import { TypeTag } from '../../shared/TypeTag';
+import { IRow } from '../../../schema';
 
 const maxLineLength = 30;
 
-export const TableDataRow = ({
-  index,
-  lengthOfArray,
-  row,
-  level,
-  isExpanded,
-  onClick,
-}) => {
-  const indentStyles = {
-    paddingLeft: `${level * 1}rem`, // Indentation based on level
-  };
+interface Props {
+  index: number;
+  lengthOfArray: number;
+  row: IRow;
+  level: number;
+  isExpanded: boolean;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+}
+
+export const TableDataRow: React.FC<Props> = (props) => {
+  const { index, lengthOfArray, row, level, isExpanded, onClick } = props;
+
+  // Indentation based on level
+  const indentStyles = { paddingLeft: `${level * 1}rem` };
 
   // Destructure available props
-  const {
-    text,
-    type,
-    children,
-    responseText,
-    extensionText,
-    casMessage,
-    autoSensed,
-    invertSensed,
-    autoReset,
-    timerSec,
-    sensedTimer,
-    synopticLink,
-  } = row;
+  const { text, type, children, responseText } = row;
 
   // Render an expand/collapse icon if the row has children.
   const RenderIcon = () => {
     if (children.length > 0) {
-      if (isExpanded) {
-        return <Icon as={RxMinus} mr='8px' />;
-      }
+      if (isExpanded) return <Icon as={RxMinus} mr='8px' />;
       return <Icon as={RxPlus} mr='8px' />;
     }
     return <Icon as={VscBlank} mr='8px' />;
@@ -49,11 +39,12 @@ export const TableDataRow = ({
   // the ability to click the title cell to toggle child visibility.
   const TextCell = () => {
     const textArray: string[] = text.split('\n');
-    const extensionArray: string[] = extensionText?.split('\n') || [];
+    // const extensionArray: string[] = extensionText?.split('\n') || [];
 
-    const FormattedLine = (line) => {
-      const numberOfEllipses = maxLineLength - line.length - response.length;
-      return line + '.'.repeat(numberOfEllipses) + response;
+    const formattedLine = (line: string) => {
+      const numberOfEllipses =
+        maxLineLength - line.length - responseText.length;
+      return line + '.'.repeat(numberOfEllipses) + responseText;
     };
 
     const RenderItem = () => {
@@ -75,7 +66,7 @@ export const TableDataRow = ({
           {index === 0 ? (
             <FirstLine line={line} />
           ) : index === textArray.length - 1 && responseText ? (
-            <FormattedLine />
+            <>{formattedLine(line)}</>
           ) : (
             <OtherLine line={line} />
           )}
@@ -104,13 +95,6 @@ export const TableDataRow = ({
       <Td>
         <TypeTag type={type} />
       </Td>
-      <Td>{casMessage}</Td>
-      <Td>{autoSensed}</Td>
-      <Td>{invertSensed}</Td>
-      <Td>{autoReset}</Td>
-      <Td>{timerSec}</Td>
-      <Td>{sensedTimer}</Td>
-      <Td>{synopticLink}</Td>
     </Tr>
   );
 };
