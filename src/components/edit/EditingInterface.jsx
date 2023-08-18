@@ -1,4 +1,4 @@
-import { TableComp } from './Table/TableComp';
+import { TableComp } from '../table/TableComp';
 import { Grid, GridItem } from '@chakra-ui/react';
 
 export const EditingInterface = () => {
