@@ -1,4 +1,4 @@
-import { MAX_LINE_LENGTH } from '../../constants';
+import { MAX_LINE_LENGTH } from '../../../constants';
 
 interface IProps {
   line: string;

@@ -5,7 +5,7 @@ import { VscBlank } from 'react-icons/vsc';
 import { ActionComp } from '../edit/actions/ActionComp';
 import { TypeTag } from '../shared/TypeTag';
 import { IRow } from '../../schema';
-import { formattedText } from './formattedText';
+import { formattedText } from './textColumn/formattedText';
 
 interface Props {
   index: number;
