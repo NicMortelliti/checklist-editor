@@ -5,8 +5,7 @@ import { VscBlank } from 'react-icons/vsc';
 import { ActionComp } from '../edit/actions/ActionComp';
 import { TypeTag } from '../shared/TypeTag';
 import { IRow } from '../../schema';
-
-const maxLineLength = 30;
+import { formattedText } from './formattedText';
 
 interface Props {
   index: number;
@@ -41,12 +40,6 @@ export const TableDataRow: React.FC<Props> = (props) => {
     const textArray: string[] = text.split('\n');
     // const extensionArray: string[] = extensionText?.split('\n') || [];
 
-    const formattedLine = (line: string) => {
-      const numberOfEllipses =
-        maxLineLength - line.length - responseText.length;
-      return line + '.'.repeat(numberOfEllipses) + responseText;
-    };
-
     const RenderItem = () => {
       const FirstLine: React.FC<{ line: string }> = ({ line }) => (
         <>
@@ -66,7 +59,7 @@ export const TableDataRow: React.FC<Props> = (props) => {
           {index === 0 ? (
             <FirstLine line={line} />
           ) : index === textArray.length - 1 && responseText ? (
-            <>{formattedLine(line)}</>
+            <>{formattedText({ line: line, responseText: responseText })}</>
           ) : (
             <OtherLine line={line} />
           )}
