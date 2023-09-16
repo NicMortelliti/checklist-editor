@@ -5,15 +5,15 @@ import { useSelector } from 'react-redux';
 import { ModalConductor } from './modals';
 
 export const App = () => {
-  const { onBoarding } = useSelector((state) => state.ui);
+  const { isOnBoarding } = useSelector((state) => state.ui);
 
   const RenderInterface = useMemo(() => {
-    if (onBoarding) {
+    if (isOnBoarding) {
       return <ProjectSelect />;
     } else {
       return <EditingInterface />;
     }
-  }, [onBoarding]);
+  }, [isOnBoarding]);
 
   return (
     <>
