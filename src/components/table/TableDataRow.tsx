@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, Icon, Td, Tr } from '@chakra-ui/react';
 import { VscBlank } from 'react-icons/vsc';
-import { ActionComp } from '../edit/actions/ActionComp';
-import { TypeTag } from '../shared/TypeTag';
+import { actionComp } from '../edit/actions/ActionComp';
+import { typeTag } from '../shared/TypeTag';
 import { IRow } from '../../schema';
 import { formattedText } from './textColumn/formattedText';
-import { firstLineText } from './textColumn/firstLineText';
+import { FirstLineText } from './textColumn/FirstLineText';
 
 interface Props {
   index: number;
@@ -27,25 +27,25 @@ export const TableDataRow: React.FC<Props> = (props) => {
 
   // The text cell has a little more complexity. Here, we're adding
   // the ability to click the title cell to toggle child visibility.
-  const TextCell = () => {
+  const textCell = () => {
     const textArray: string[] = text.split('\n');
     // const extensionArray: string[] = extensionText?.split('\n') || [];
 
-    const RenderItem = () => {
-      const OtherLine: React.FC<{ line: string }> = ({ line }) => (
+    const renderItem = () => {
+      const otherLine = (line: string) => (
         <>
           <Icon as={VscBlank} mr='8px' />
           {line}
         </>
       );
       return textArray.map((line, index) => (
-        <p key={line + index.toString}>
+        <p key={line + index.toString()}>
           {index === 0 ? (
-            <>{firstLineText({ line: line, children: children, isExpanded: isExpanded })}</>
+            <FirstLineText line={line} children={children} isExpanded={isExpanded} />
           ) : index === textArray.length - 1 && responseText ? (
-            <>{formattedText({ line: line, responseText: responseText })}</>
+            formattedText({ line: line, responseText: responseText })
           ) : (
-            <OtherLine line={line} />
+            otherLine(line)
           )}
         </p>
       ));
@@ -53,22 +53,16 @@ export const TableDataRow: React.FC<Props> = (props) => {
 
     return (
       <Box onClick={onClick} _hover={{ bg: 'gray.100', cursor: 'pointer' }} style={indentStyles}>
-        <RenderItem />
+        {renderItem()}
       </Box>
     );
   };
 
   return (
     <Tr>
-      <Td>
-        <ActionComp objData={row} index={index} lengthOfArray={lengthOfArray} />
-      </Td>
-      <Td>
-        <TextCell />
-      </Td>
-      <Td>
-        <TypeTag type={type} />
-      </Td>
+      <Td>{actionComp({ objData: row, index: index, lengthOfArray: lengthOfArray })}</Td>
+      <Td>{textCell()}</Td>
+      <Td>{typeTag(type)} </Td>
     </Tr>
   );
 };

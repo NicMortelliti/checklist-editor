@@ -1,11 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Tag } from '@chakra-ui/react';
 
-interface TypeTagProps {
-  type: string;
-}
-
-export const TypeTag = ({ type }: TypeTagProps) => {
+export const typeTag = (type: string) => {
   const { typeColors } = useSelector((state) => state.ui);
 
   // Capitalize first character in string

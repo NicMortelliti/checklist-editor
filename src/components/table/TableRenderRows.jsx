@@ -1,12 +1,9 @@
 import React from 'react';
 import { TableDataRow } from './TableDataRow';
 
-export const TableRenderRows = ({
-  data,
-  level,
-  expandedRows,
-  setExpandedRows,
-}) => {
+export const TableRenderRows = ({ data, level }) => {
+  const [expandedRows, setExpandedRows] = React.useState([]);
+
   // Handle row click
   const handleRowClick = (id) => {
     setExpandedRows((prevExpandedRows) => {
@@ -15,6 +12,16 @@ export const TableRenderRows = ({
       }
       return [...prevExpandedRows, id];
     });
+  };
+
+  // Expand row
+  const handleExpandRow = (rowId) => {
+    setExpandedRows([...expandedRows, rowId]);
+  };
+
+  // Collapse row
+  const handleCollapseRow = (rowId) => {
+    setExpandedRows(expandedRows.filter((id) => id !== rowId));
   };
 
   // Render each row
@@ -29,7 +36,7 @@ export const TableRenderRows = ({
         row={eachRow}
         level={level}
         isExpanded={isExpanded}
-        onClick={() => handleRowClick(eachRow.id)}
+        onClick={() => handleExpandRow(eachRow.id)}
       />
     );
 

@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setModal } from '../../redux/uiSlice';
 import { deleteItem } from '../../redux/dataSlice';
 import { recursiveObjSearch } from '../../helpers/searchFunctions';
-import { TypeTag } from '../shared/TypeTag';
+import { typeTag } from '../shared/TypeTag';
 
 export const DeleteModal = ({ overlay }) => {
   const dispatch = useDispatch();
@@ -44,15 +44,14 @@ export const DeleteModal = ({ overlay }) => {
             <Divider />
             <HStack my='10px'>
               <Flex align='center'>
-                <TypeTag type={type} />
+                {typeTag(type)}
                 <Text ml='10px'> {text.slice(0, 25)}</Text>
               </Flex>
             </HStack>
             <Divider mb='20px' />
             <Container centerContent>
               <Text mb='20px'>
-                Deleting this item will delete this row and its child rows. Are
-                you sure you want to delete it?
+                Deleting this item will delete this row and its child rows. Are you sure you want to delete it?
               </Text>
               <Text color='red'>This cannot be undone.</Text>
             </Container>

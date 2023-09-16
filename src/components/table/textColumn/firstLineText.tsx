@@ -8,7 +8,7 @@ interface IProps {
   isExpanded: boolean;
 }
 
-export const firstLineText = ({ line, children, isExpanded }: IProps): JSX.Element => {
+export const FirstLineText: React.FC<IProps> = ({ line, children, isExpanded }) => {
   // Determine what icon to display (e.g. expand/collapse/none)
   const icon = () => {
     if (children.length > 0) {
@@ -21,7 +21,7 @@ export const firstLineText = ({ line, children, isExpanded }: IProps): JSX.Eleme
   // Render line with icon
   return (
     <>
-      {icon}
+      {icon()}
       {line}
     </>
   );

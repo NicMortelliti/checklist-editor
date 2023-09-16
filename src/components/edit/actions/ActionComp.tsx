@@ -9,11 +9,7 @@ interface IActionComp {
   lengthOfArray: number;
 }
 
-export const ActionComp: React.FC<IActionComp> = ({
-  objData,
-  index,
-  lengthOfArray,
-}) => {
+export const actionComp: React.FC<IActionComp> = ({ objData, index, lengthOfArray }) => {
   return (
     <>
       <MoveRow objData={objData} index={index} lengthOfArray={lengthOfArray} />
