@@ -19,12 +19,12 @@ const initialState = {
   typeColors: {
     '-': 'white',
     index: 'teal',
-    'sub-index': 'cyan',
+    subIndex: 'cyan',
     checklist: 'messenger',
-    'conditional-parent': 'orange',
-    'conditional-child': 'yellow',
-    'msli-parent': 'pink',
-    'msli-child': 'red',
+    conditionalParent: 'orange',
+    conditionalChild: 'yellow',
+    msliParent: 'pink',
+    msliChild: 'red',
   },
 };
 
